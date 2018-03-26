@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import About from './pages/About';
 import Home from './pages/Home';
 import Topics from './pages/Topics';
+import PostsShow from './pages/PostsShow';
 
 class App extends Component {
   render() {
@@ -40,11 +41,15 @@ class App extends Component {
               <li>
                 <Link to="/topics">Topics</Link>
               </li>
+              <li>
+                <Link to="/posts/345">Post 345</Link>
+              </li>
             </ul>
 
             <hr />
 
             <Route exact path="/" component={Home} />
+            <Route path="/posts/:id" component={PostsShow} />
             <Route path="/about" component={About} />
             <Route path="/topics" component={Topics} />
           </div>
