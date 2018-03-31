@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Ticker from './Ticker';
+import Ticker from 'components/Ticker';
 import './Tickers.css';
 
 class Tickers extends Component {

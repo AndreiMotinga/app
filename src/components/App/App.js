@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-import Nav from './Nav';
+import Nav from 'components/Nav';
 import CssBaseline from 'material-ui/CssBaseline';
 
 class App extends Component {
