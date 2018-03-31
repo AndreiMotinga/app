@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
 
-class SimpleMenu extends React.Component {
+class Dropdown extends React.Component {
   state = {
     anchorEl: null
   };
@@ -42,4 +42,4 @@ class SimpleMenu extends React.Component {
   }
 }
 
-export default SimpleMenu;
+export default Dropdown;

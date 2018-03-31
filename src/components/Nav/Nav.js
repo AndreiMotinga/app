@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
-import logo from './logo.svg';
-import Tickers from 'components/Tickers';
-import SimpleMenu from 'components/SimpleMenu';
-import AuthMenu from 'components/AuthMenu';
 import CSS from 'config/css_variables';
+import logo from './logo.svg';
+import Dropdown from './Dropdown';
+import AuthDropdown from './AuthDropdown';
+import Tickers from 'components/Tickers';
 
 class Nav extends React.Component {
   render() {
@@ -21,8 +20,8 @@ class Nav extends React.Component {
             <img src={logo} className="App-logo" alt="logo" />
             <Tickers />
             <div className={classes.spacer} />
-            <SimpleMenu />
-            <AuthMenu />
+            <Dropdown />
+            <AuthDropdown />
           </Toolbar>
         </AppBar>
       </div>

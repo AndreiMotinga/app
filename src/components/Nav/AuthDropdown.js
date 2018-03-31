@@ -5,7 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
 import { Link } from 'react-router-dom';
 
-class AuthMenu extends React.Component {
+class AuthDropdown extends React.Component {
   state = {
     auth: false,
     anchorEl: null
@@ -69,4 +69,4 @@ class AuthMenu extends React.Component {
   }
 }
 
-export default AuthMenu;
+export default AuthDropdown;
