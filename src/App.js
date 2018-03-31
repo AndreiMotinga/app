@@ -11,7 +11,6 @@ import About from './pages/About';
 import Home from './pages/Home';
 import Topics from './pages/Topics';
 import PostsShow from './pages/PostsShow';
-import store from './store';
 
 class App extends Component {
   render() {

@@ -5,7 +5,9 @@ import {
   SET_VISIBILITY_FILTER,
   VisibilityFilters
 } from './actions';
+
 const { SHOW_ALL } = VisibilityFilters;
+
 function visibilityFilter(state = SHOW_ALL, action) {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
@@ -14,6 +16,7 @@ function visibilityFilter(state = SHOW_ALL, action) {
       return state;
   }
 }
+
 function todos(state = [], action) {
   switch (action.type) {
     case ADD_TODO:
@@ -37,8 +40,10 @@ function todos(state = [], action) {
       return state;
   }
 }
+
 const todoApp = combineReducers({
   visibilityFilter,
   todos
 });
+
 export default todoApp;
