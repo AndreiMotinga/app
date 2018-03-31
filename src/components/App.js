@@ -1,12 +1,17 @@
-import React from 'react';
-import Footer from './Footer';
-import AddTodo from '../containers/AddTodo';
-import VisibleTodoList from '../containers/VisibleTodoList';
-const App = () => (
-  <div>
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
-  </div>
-);
+import React, { Component } from 'react';
+import './App.css';
+import Nav from './Nav';
+import CssBaseline from 'material-ui/CssBaseline';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <CssBaseline />
+        <Nav />
+      </div>
+    );
+  }
+}
+
 export default App;
