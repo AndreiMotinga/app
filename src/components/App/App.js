@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from 'components/Nav';
 import CssBaseline from 'material-ui/CssBaseline';
+import Routes from 'components/Routes';
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <div>
         <CssBaseline />
         <Nav />
+        <Routes />
       </div>
     );
   }
