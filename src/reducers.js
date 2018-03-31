@@ -41,9 +41,17 @@ function todos(state = [], action) {
   }
 }
 
+function currentUser(state = [], action) {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+
 const todoApp = combineReducers({
   visibilityFilter,
-  todos
+  todos,
+  currentUser
 });
 
 export default todoApp;
