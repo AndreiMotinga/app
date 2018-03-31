@@ -1,4 +1,4 @@
-CSS = {
+const CSS = {
   red: 'red'
 };
 

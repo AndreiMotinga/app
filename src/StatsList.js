@@ -6,8 +6,6 @@ import List, {
   ListItemSecondaryAction,
   ListItemText
 } from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
-import Avatar from 'material-ui/Avatar';
 
 const styles = theme => ({
   root: {

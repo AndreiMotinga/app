@@ -16,7 +16,6 @@ class Tickers extends Component {
   }
 
   loadData() {
-    console.log('loading data');
     // $.getJSON(`${BASE_URL}/appicons?${this.state.key}`, (res) => {
     //   this.setState({ tickers: res })
     // });

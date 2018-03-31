@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './Strategy.css';
 
@@ -10,7 +10,7 @@ function Strategy({
 }) {
   return (
     <div className="Strategy">
-      <a href="#">
+      <a href="/about">
         <div className="under">
           <canvas />
         </div>
