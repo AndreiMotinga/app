@@ -3,13 +3,28 @@ import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class AuthDropdown extends React.Component {
-  state = {
-    auth: false,
-    anchorEl: null
-  };
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      currentUser: {},
+      anchorEl: null
+    };
+  }
+
+  componentWillMount() {
+    axios
+      .get('/api/users/current.json')
+      .then(res => {
+        this.setState({ currentUser: res.data });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
 
   handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -23,14 +38,21 @@ class AuthDropdown extends React.Component {
     this.setState({ anchorEl: null });
   };
 
+  handleSignOut = () => {
+    axios.delete('/users/sign_out').then(res => {
+      this.setState({ currentUser: {} });
+    });
+  };
+
   render() {
-    const { anchorEl, auth } = this.state;
+    const anchorEl = this.state.anchorEl;
     const open = Boolean(anchorEl);
+    const auth = !!this.state.currentUser.email;
 
     return (
       <div className="Nav_right_item">
         {!auth && (
-          <Button onClick={() => (document.location = '/users/sign_in')}>
+          <Button onClick={() => (window.location = '/users/sign_in')}>
             Sign in
           </Button>
         )}
@@ -61,6 +83,7 @@ class AuthDropdown extends React.Component {
             >
               <MenuItem onClick={this.handleClose}>Profile</MenuItem>
               <MenuItem onClick={this.handleClose}>My account</MenuItem>
+              <MenuItem onClick={this.handleSignOut}>Sign out</MenuItem>
             </Menu>
           </div>
         )}
