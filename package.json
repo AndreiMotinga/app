@@ -2,10 +2,8 @@
   "name": "crypto",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
-    "react-scripts": "1.1.1",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.0",
     "material-ui": "next",
@@ -13,7 +11,9 @@
     "prettier": "^1.11.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2"
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
