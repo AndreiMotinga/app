@@ -1,0 +1,42 @@
+/*
+ * Define a variable at the top level of the cascade
+ * Make sure these variables are present in css_vairables.js as well
+ * in order to be able to use them in MUI styles
+*/
+:root {
+  --white-medium: rgba(255, 255, 255, 0.5);
+  --white: rgba(255, 255, 255, 1);
+  --blue-bright: #42aee8;
+  --blue: #42aee8;
+  --pink: #d56ba8;
+  --purple: #6d3a9e;
+  --green: #0fbd88;
+  --dark-green: #1a9160;
+  --red: #fd413d;
+  --pink: #de55eb;
+  --baby-blue: #33c2e6;
+  --white: #fff;
+  --white-lite: rgba(255, 255, 255, 0.1);
+  --white-medium: rgba(255, 255, 255, 0.3);
+  --white-heavy: rgba(255, 255, 255, 0.6);
+
+  --dark: #4a4a4a;
+  --border: 1px solid #fff;
+  --base-duration: 150ms;
+  --base-timing: ease;
+  --font: Arial;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* Typography */
+.SectionTitle {
+  color: var(--white);
+  font-size: 13px;
+  line-height: 35px;
+  letter-spacing: 1px;
+}
