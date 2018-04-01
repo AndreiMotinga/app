@@ -46,10 +46,10 @@ SimpleBottomNavigation.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-const styles = {
-  // root: {
-  //   width: 500,
-  // },
-};
+const styles = theme => ({
+  root: {
+    marginTop: theme.spacing.unit * 3
+  }
+});
 
 export default withStyles(styles)(SimpleBottomNavigation);

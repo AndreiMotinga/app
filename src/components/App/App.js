@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Nav from 'components/Nav';
 import CssBaseline from 'material-ui/CssBaseline';
 import Routes from 'components/Routes';
@@ -7,31 +8,79 @@ import Strategy from 'components/Strategy';
 import Patterns from 'components/Patterns';
 import Footer from 'components/Footer';
 import Grid from 'material-ui/Grid';
+import Typography from 'material-ui/Typography';
+import { withStyles } from 'material-ui/styles';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <CssBaseline />
-        <Nav />
-        <Post />
+function App(props) {
+  const { classes } = props;
+  return (
+    <div>
+      <CssBaseline />
+      <Nav />
 
-        <Strategy />
-        <Strategy />
-        <Strategy />
-        <Strategy />
+      <div className={classes.root}>
+        <Grid container spacing={16}>
+          <Grid item xs={12} lg={5}>
+            <Typography variant="display1">Daily Market Update</Typography>
+            <Post />
+          </Grid>
 
-        <Patterns />
+          <Grid item xs={12} lg={7}>
+            <Typography variant="display1">Strategies</Typography>
+            <Grid container spacing={8}>
+              <Grid item xs={12} lg={3}>
+                <Strategy />
+              </Grid>
+              <Grid item xs={12} lg={3}>
+                <Strategy />
+              </Grid>
+              <Grid item xs={12} lg={3}>
+                <Strategy />
+              </Grid>
+              <Grid item xs={12} lg={3}>
+                <Strategy />
+              </Grid>
+            </Grid>
 
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+            <br />
 
-        <Footer />
+            <Typography variant="display1">Trading Patterns</Typography>
+            <Grid container spacing={8}>
+              <Patterns />
+            </Grid>
+          </Grid>
+        </Grid>
       </div>
-    );
-  }
+
+      <Grid container spacing={16}>
+        <Grid item xs={12} lg={3}>
+          <Post />
+        </Grid>
+        <Grid item xs={12} lg={3}>
+          <Post />
+        </Grid>
+        <Grid item xs={12} lg={3}>
+          <Post />
+        </Grid>
+        <Grid item xs={12} lg={3}>
+          <Post />
+        </Grid>
+      </Grid>
+
+      <Footer />
+    </div>
+  );
 }
 
-export default App;
+App.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    padding: '15px'
+  }
+});
+
+export default withStyles(styles)(App);
