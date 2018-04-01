@@ -10,9 +10,9 @@ import LocationOnIcon from 'material-ui-icons/LocationOn';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import About from 'pages/About';
-import Home from 'pages/Home';
-import Topics from 'pages/Topics';
+import Faq from 'pages/Faq';
+import Tos from 'pages/Tos';
+import Pp from 'pages/Pp';
 
 class SimpleBottomNavigation extends React.Component {
   state = {
@@ -34,9 +34,24 @@ class SimpleBottomNavigation extends React.Component {
         showLabels
         className={classes.root}
       >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        <BottomNavigationAction
+          label="FAQ"
+          icon={<RestoreIcon />}
+          component={Link}
+          to="/faq"
+        />
+        <BottomNavigationAction
+          label="ToS"
+          icon={<FavoriteIcon />}
+          component={Link}
+          to="/tos"
+        />
+        <BottomNavigationAction
+          label="PP"
+          icon={<LocationOnIcon />}
+          component={Link}
+          to="/pp"
+        />
       </BottomNavigation>
     );
   }

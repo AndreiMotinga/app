@@ -7,10 +7,12 @@ import Strategy from 'components/Strategy';
 import Patterns from 'components/Patterns';
 import Footer from 'components/Footer';
 import Home from 'components/Home';
+
 import PostsShow from 'pages/PostsShow';
-import About from 'pages/About';
-import StrategyPage from 'pages/Strategy';
-import Topics from 'pages/Topics';
+import StrategiesShow from 'pages/StrategiesShow';
+import Faq from 'pages/Faq';
+import Tos from 'pages/Tos';
+import Pp from 'pages/Pp';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Typography from 'material-ui/Typography';
@@ -25,9 +27,10 @@ function App(props) {
         <Nav />
         <Route exact path="/" component={Home} />
         <Route path="/posts/:id" component={PostsShow} />
-        <Route path="/strategies/:id" component={StrategyPage} />
-        <Route path="/about" component={About} />
-        <Route path="/topics" component={Topics} />
+        <Route path="/strategies/:id" component={StrategiesShow} />
+        <Route path="/faq" component={Faq} />
+        <Route path="/tos" component={Tos} />
+        <Route path="/pp" component={Pp} />
         <Footer />
       </div>
     </Router>

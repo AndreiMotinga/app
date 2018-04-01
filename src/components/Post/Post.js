@@ -17,6 +17,7 @@ import FavoriteIcon from 'material-ui-icons/Favorite';
 import ShareIcon from 'material-ui-icons/Share';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import MoreVertIcon from 'material-ui-icons/MoreVert';
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
   card: {
@@ -70,11 +71,13 @@ class RecipeReviewCard extends React.Component {
             title="Shrimp and Chorizo Paella"
             subheader="September 14, 2016"
           />
-          <CardMedia
-            className={classes.media}
-            image="http://via.placeholder.com/350x150"
-            title="Contemplative Reptile"
-          />
+          <Link to={`/posts/${4}`}>
+            <CardMedia
+              className={classes.media}
+              image="http://via.placeholder.com/350x150"
+              title="Contemplative Reptile"
+            />
+          </Link>
           <CardContent>
             <Typography component="p">
               This impressive paella is a perfect party dish and a fun meal to
