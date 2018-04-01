@@ -10,9 +10,9 @@ import LocationOnIcon from 'material-ui-icons/LocationOn';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import About from './pages/About';
-import Home from './pages/Home';
-import Topics from './pages/Topics';
+import About from 'pages/About';
+import Home from 'pages/Home';
+import Topics from 'pages/Topics';
 
 class SimpleBottomNavigation extends React.Component {
   state = {

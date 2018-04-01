@@ -34,7 +34,7 @@ const data = [
   createData('Gingerbread', 356, 16.0, 49, 3.9)
 ];
 
-function SimpleTable(props) {
+function Patterns(props) {
   const { classes } = props;
 
   return (
@@ -67,8 +67,8 @@ function SimpleTable(props) {
   );
 }
 
-SimpleTable.propTypes = {
+Patterns.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SimpleTable);
+export default withStyles(styles)(Patterns);

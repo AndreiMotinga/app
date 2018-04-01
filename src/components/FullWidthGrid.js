@@ -14,13 +14,6 @@ function FullWidthGrid(props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={16}>
-        {/* <Grid item xs={12}> */}
-        {/*   <header className="App-header"> */}
-        {/*     <div className="SectionTitle">Some title here</div> */}
-        {/*     <h1 className="App-title">Welcome to React</h1> */}
-        {/*   </header> */}
-        {/* </Grid> */}
-
         <Grid item xs={12} lg={5}>
           <Typography variant="display1">Some title here</Typography>
           <Post />
