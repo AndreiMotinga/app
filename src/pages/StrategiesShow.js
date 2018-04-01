@@ -1,8 +1,9 @@
 import React from 'react';
+import StatsList from 'components/StatsList';
 
 const StrategiesShow = () => (
   <div>
-    <h2>Strategy her</h2>
+    <StatsList />
   </div>
 );
 

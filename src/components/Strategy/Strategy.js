@@ -11,7 +11,7 @@ function Strategy({
 }) {
   return (
     <div className="Strategy">
-      <Link to={`/about/${4}`}>
+      <Link to={`/strategies/${4}`}>
         <div className="under">
           <canvas />
         </div>
