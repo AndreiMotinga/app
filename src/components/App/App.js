@@ -17,7 +17,7 @@ import Pp from 'pages/Pp';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
-import PlansModal from 'components/PlansModal'
+import PlansModal from 'components/PlansModal';
 
 function App(props) {
   const { classes } = props;
@@ -26,7 +26,7 @@ function App(props) {
       <div>
         <CssBaseline />
         <Nav />
-        <PlansModal></PlansModal>
+        <PlansModal />
         <Route exact path="/" component={Home} />
         <Route path="/posts/:id" component={PostsShow} />
         <Route path="/strategies/:id" component={StrategiesShow} />
