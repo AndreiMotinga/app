@@ -9,6 +9,8 @@ import Dropdown from './Dropdown';
 import AuthDropdown from './AuthDropdown';
 import Tickers from 'components/Tickers';
 
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 class Nav extends React.Component {
   render() {
     const { classes } = this.props;
@@ -17,7 +19,9 @@ class Nav extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <img src={logo} className="App-logo" alt="logo" />
+            <Link to="/">
+              <img src={logo} className="App-logo" alt="logo" />
+            </Link>
             <Tickers />
             <div className={classes.spacer} />
             <Dropdown />

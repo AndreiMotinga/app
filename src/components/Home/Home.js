@@ -73,8 +73,8 @@ Home.propTypes = {
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    padding: '15px'
+    // flexGrow: 1,
+    // padding: '15px'
   }
 });
 

@@ -9,7 +9,7 @@ const StrategiesShow = () => (
   <div>
     <Grid container spacing={16}>
       <Grid item xs={12} lg={9}>
-        <Typography variant="display1">GEWINN FUTURES AGGRESIV</Typography>
+        <Typography>GEWINN FUTURES AGGRESIV</Typography>
         <Stat />
         <Stat />
         <Stat />

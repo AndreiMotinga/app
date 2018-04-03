@@ -16,7 +16,6 @@ import Pp from 'pages/Pp';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Typography from 'material-ui/Typography';
-import { withStyles } from 'material-ui/styles';
 import PlansModal from 'components/PlansModal';
 
 function App(props) {
@@ -26,13 +25,15 @@ function App(props) {
       <div>
         <CssBaseline />
         <Nav />
-        {/* <PlansModal /> */}
-        <Route exact path="/" component={Home} />
-        <Route path="/posts/:id" component={PostsShow} />
-        <Route path="/strategies/:id" component={StrategiesShow} />
-        <Route path="/faq" component={Faq} />
-        <Route path="/tos" component={Tos} />
-        <Route path="/pp" component={Pp} />
+        <div className="App">
+          {/* <PlansModal /> */}
+          <Route exact path="/" component={Home} />
+          <Route path="/posts/:id" component={PostsShow} />
+          <Route path="/strategies/:id" component={StrategiesShow} />
+          <Route path="/faq" component={Faq} />
+          <Route path="/tos" component={Tos} />
+          <Route path="/pp" component={Pp} />
+        </div>
         <Footer />
       </div>
     </Router>
@@ -43,11 +44,4 @@ App.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    padding: '15px'
-  }
-});
-
-export default withStyles(styles)(App);
+export default App;
