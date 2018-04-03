@@ -46,20 +46,23 @@ function Home(props) {
         </Grid>
       </div>
 
-      <Grid container spacing={16}>
-        <Grid item xs={12} lg={3}>
-          <Post />
+      <div className={classes.root}>
+        <Typography variant="display1">Recent Posts</Typography>
+        <Grid container spacing={16}>
+          <Grid item xs={12} lg={3}>
+            <Post />
+          </Grid>
+          <Grid item xs={12} lg={3}>
+            <Post />
+          </Grid>
+          <Grid item xs={12} lg={3}>
+            <Post />
+          </Grid>
+          <Grid item xs={12} lg={3}>
+            <Post />
+          </Grid>
         </Grid>
-        <Grid item xs={12} lg={3}>
-          <Post />
-        </Grid>
-        <Grid item xs={12} lg={3}>
-          <Post />
-        </Grid>
-        <Grid item xs={12} lg={3}>
-          <Post />
-        </Grid>
-      </Grid>
+      </div>
     </div>
   );
 }

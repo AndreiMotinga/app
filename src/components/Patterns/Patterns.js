@@ -21,17 +21,15 @@ const styles = theme => ({
 });
 
 let id = 0;
-function createData(name, calories, fat, carbs, protein) {
+function createData(name, date, lastTrade, signal, expected, hold) {
   id += 1;
-  return { id, name, calories, fat, carbs, protein };
+  return { id, name, date, lastTrade, signal, expected, hold };
 }
 
 const data = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9)
+  createData('2 up days', '4/3/2018', '-1.5%', 'YES', '', '12 hours'),
+  createData('4 up days', '4/3/2018', '-1.5%', 'YES', '', '12 hours'),
+  createData('3 down days', '4/3/2018', '-4.5%', 'YES', '', '12 hours')
 ];
 
 function Patterns(props) {
@@ -42,11 +40,12 @@ function Patterns(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell numeric>Calories</TableCell>
-            <TableCell numeric>Fat (g)</TableCell>
-            <TableCell numeric>Carbs (g)</TableCell>
-            <TableCell numeric>Protein (g)</TableCell>
+            <TableCell>Trend</TableCell>
+            <TableCell>Last Trade Date</TableCell>
+            <TableCell numeric>Last Trade Perf.</TableCell>
+            <TableCell numeric>Signal for 4/3/2018</TableCell>
+            <TableCell numeric>Expected Profit</TableCell>
+            <TableCell numeric>Hold Time</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -54,10 +53,11 @@ function Patterns(props) {
             return (
               <TableRow key={n.id}>
                 <TableCell>{n.name}</TableCell>
-                <TableCell numeric>{n.calories}</TableCell>
-                <TableCell numeric>{n.fat}</TableCell>
-                <TableCell numeric>{n.carbs}</TableCell>
-                <TableCell numeric>{n.protein}</TableCell>
+                <TableCell numeric>{n.date}</TableCell>
+                <TableCell numeric>{n.lastTrade}</TableCell>
+                <TableCell numeric>{n.signal}</TableCell>
+                <TableCell numeric>{n.expected}</TableCell>
+                <TableCell numeric>{n.hold}</TableCell>
               </TableRow>
             );
           })}

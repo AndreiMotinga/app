@@ -26,7 +26,7 @@ function App(props) {
       <div>
         <CssBaseline />
         <Nav />
-        <PlansModal />
+        {/* <PlansModal /> */}
         <Route exact path="/" component={Home} />
         <Route path="/posts/:id" component={PostsShow} />
         <Route path="/strategies/:id" component={StrategiesShow} />
