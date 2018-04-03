@@ -1,6 +1,5 @@
 import React from 'react';
 import './Tile.css';
-import Paper from 'material-ui/Paper';
 
 function Tile() {
   return (

@@ -8,11 +8,7 @@ import RestoreIcon from 'material-ui-icons/Restore';
 import FavoriteIcon from 'material-ui-icons/Favorite';
 import LocationOnIcon from 'material-ui-icons/LocationOn';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-import Faq from 'pages/Faq';
-import Tos from 'pages/Tos';
-import Pp from 'pages/Pp';
+import { Link } from 'react-router-dom';
 
 class SimpleBottomNavigation extends React.Component {
   state = {

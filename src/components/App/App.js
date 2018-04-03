@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Nav from 'components/Nav';
 import CssBaseline from 'material-ui/CssBaseline';
 import Footer from 'components/Footer';
@@ -9,9 +9,9 @@ import Faq from 'pages/Faq';
 import Tos from 'pages/Tos';
 import Pp from 'pages/Pp';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Typography from 'material-ui/Typography';
-import PlansModal from 'components/PlansModal';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import Typography from 'material-ui/Typography';
+// import PlansModal from 'components/PlansModal';
 
 function App() {
   return (

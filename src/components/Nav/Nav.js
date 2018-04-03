@@ -9,7 +9,7 @@ import Dropdown from './Dropdown';
 import AuthDropdown from './AuthDropdown';
 import Tickers from 'components/Tickers';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Nav extends React.Component {
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './Strategy.css';
 import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -30,8 +30,8 @@ function Strategy({
   );
 }
 
-Strategy.propTypes = {
-  strategy: PropTypes.object.isRequired
-};
+// Strategy.propTypes = {
+//   strategy: PropTypes.object.isRequired
+// };
 
 export default Strategy;
