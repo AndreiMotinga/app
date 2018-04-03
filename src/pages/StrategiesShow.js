@@ -1,8 +1,8 @@
 import React from 'react';
 import StatsList from 'components/StatsList';
-import Stat from 'components/Stat';
+import Tiles from 'components/Tiles';
 import Typography from 'material-ui/Typography';
-import Patterns from 'components/Patterns';
+import StrategiesShowTable from 'components/StrategiesShowTable';
 import Grid from 'material-ui/Grid';
 
 const StrategiesShow = () => (
@@ -10,17 +10,13 @@ const StrategiesShow = () => (
     <Grid container spacing={16}>
       <Grid item xs={12} lg={9}>
         <Typography>GEWINN FUTURES AGGRESIV</Typography>
-        <Stat />
-        <Stat />
-        <Stat />
-        <Stat />
-        <Stat />
-        <Stat />
+        <Tiles />
+
         <Typography>
           Hypothetical Monthly Returnds (includes system fee and Typical Broken
           commissions and fees)
         </Typography>
-        <Patterns />
+        <StrategiesShowTable />
       </Grid>
       <Grid item xs={12} lg={3}>
         <Typography>SUMMARY STATISTICS</Typography>
