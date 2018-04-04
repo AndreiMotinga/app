@@ -54,9 +54,9 @@ function StrategiesShowTable(props) {
       <Table className={classes.root}>
         <TableHead>
           <TableRow>
-            <TableCell padding="dense" />
+            <TableCell padding="checkbox" />
             {months.map(m => (
-              <TableCell padding="dense" numeric>
+              <TableCell padding="checkbox" numeric>
                 {m}
               </TableCell>
             ))}
@@ -66,7 +66,7 @@ function StrategiesShowTable(props) {
           {data.map(arr => (
             <TableRow key={arr[0]}>
               {arr.map((n, i) => (
-                <TableCell key={i} padding="dense" numeric>
+                <TableCell key={i} padding="checkbox" numeric>
                   {n}
                 </TableCell>
               ))}

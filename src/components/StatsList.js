@@ -6,49 +6,167 @@ import List, {
   ListItemSecondaryAction,
   ListItemText
 } from 'material-ui/List';
+import Paper from 'material-ui/Paper';
 
 const styles = theme => ({
   root: {
     width: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper
+  },
+  secondary: {
+    paddingRight: 10
   }
 });
 
 class StatsList extends React.Component {
   state = {
-    checked: [1]
-  };
-
-  handleToggle = value => () => {
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
+    summaryStats: {
+      startDate: '04/11/2017',
+      suggestedMinimumCapital: '$40,000',
+      numTrades: 1433,
+      numProfitableTrades: 1001,
+      percentWinners: 62.3,
+      correlationBTC: -0.05,
+      correlationETH: 0.1,
+      correlationSPY: 0.67,
+      sharpeRatio: 1.39
     }
-
-    this.setState({
-      checked: newChecked
-    });
   };
 
   render() {
     const { classes } = this.props;
+    const stats = this.state['summaryStats'];
 
     return (
       <div className={classes.root}>
-        <List>
-          {[0, 1, 2, 3].map(value => (
-            <ListItem key={value} dense button className={classes.listItem}>
-              <ListItemText primary={`Line item ${value + 1}`} />
-              <ListItemSecondaryAction>{value * 10}</ListItemSecondaryAction>
+        <Paper>
+          <List>
+            <ListItem
+              key={stats['startDate']}
+              dense
+              button
+              className={classes.listItem}
+            >
+              <ListItemText primary="Strategy began" />
+              <ListItemSecondaryAction className={classes.secondary}>
+                {stats['startDate']}
+              </ListItemSecondaryAction>
             </ListItem>
-          ))}
-        </List>
+          </List>
+
+          <List>
+            <ListItem
+              key={stats['suggestedMinimumCapital']}
+              dense
+              button
+              className={classes.listItem}
+            >
+              <ListItemText primary="Suggested Minimum Capital" />
+              <ListItemSecondaryAction className={classes.secondary}>
+                {stats['suggestedMinimumCapital']}
+              </ListItemSecondaryAction>
+            </ListItem>
+          </List>
+
+          <List>
+            <ListItem
+              key={stats['numTrades']}
+              dense
+              button
+              className={classes.listItem}
+            >
+              <ListItemText primary="# Trades" />
+              <ListItemSecondaryAction className={classes.secondary}>
+                {stats['numTrades']}
+              </ListItemSecondaryAction>
+            </ListItem>
+          </List>
+
+          <List>
+            <ListItem
+              key={stats['numProfitableTrades']}
+              dense
+              button
+              className={classes.listItem}
+            >
+              <ListItemText primary="# Profitable" />
+              <ListItemSecondaryAction className={classes.secondary}>
+                {stats['numProfitableTrades']}
+              </ListItemSecondaryAction>
+            </ListItem>
+          </List>
+
+          <List>
+            <ListItem
+              key={stats['percentWinners']}
+              dense
+              button
+              className={classes.listItem}
+            >
+              <ListItemText primary="% Profitable" />
+              <ListItemSecondaryAction className={classes.secondary}>
+                {stats['percentWinners']}
+              </ListItemSecondaryAction>
+            </ListItem>
+          </List>
+
+          <List>
+            <ListItem
+              key={stats['correlationSPY']}
+              dense
+              button
+              className={classes.listItem}
+            >
+              <ListItemText primary="Correlation S&P500" />
+              <ListItemSecondaryAction className={classes.secondary}>
+                {stats['correlationSPY']}
+              </ListItemSecondaryAction>
+            </ListItem>
+          </List>
+
+          <List>
+            <ListItem
+              key={stats['correlationBTC']}
+              dense
+              button
+              className={classes.listItem}
+            >
+              <ListItemText primary="Correlation BTC" />
+              <ListItemSecondaryAction className={classes.secondary}>
+                {stats['correlationBTC']}
+              </ListItemSecondaryAction>
+            </ListItem>
+          </List>
+
+          <List>
+            <ListItem
+              key={stats['correlationETH']}
+              dense
+              button
+              className={classes.listItem}
+            >
+              <ListItemText primary="Correlation ETH" />
+              <ListItemSecondaryAction className={classes.secondary}>
+                {stats['correlationETH']}
+              </ListItemSecondaryAction>
+            </ListItem>
+          </List>
+
+          <List>
+            <ListItem
+              key={stats['sharpeRatio']}
+              dense
+              button
+              className={classes.listItem}
+            >
+              <ListItemText primary="sharpeRatio" />
+              <ListItemSecondaryAction className={classes.secondary}>
+                {stats['sharpeRatio']}
+              </ListItemSecondaryAction>
+            </ListItem>
+          </List>
+        </Paper>
       </div>
     );
   }
