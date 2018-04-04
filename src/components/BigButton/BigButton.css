@@ -1,0 +1,30 @@
+.BigButton {
+  display: inline-block;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+}
+
+.BigButton a {
+  text-decoration: none;
+}
+
+.BigButton .simulate {
+  color: var(--pink);
+}
+
+.BigButton .subscribe {
+  color: blue;
+}
+
+.BigButton .action {
+  font-size: 18px;
+  letter-spacing: 4px;
+}
+
+.BigButton .subline {
+  font-size: 14px;
+  color: #555555;
+}
