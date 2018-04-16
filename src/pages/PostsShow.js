@@ -27,6 +27,7 @@ class PostsShow extends React.Component {
       <div>
         <h2>Post id is {post.id}</h2>
         <h2>{post.title}</h2>
+        <p>{post.body}</p>
       </div>
     );
   }

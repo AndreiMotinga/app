@@ -16,5 +16,11 @@ ReactDOM.render(
 );
 registerServiceWorker();
 
+// TODO this is not proper way to reload hot module
+// there is supposed to be something wrong with the state. do investigate later
+if (module.hot) {
+  module.hot.accept();
+}
+
 Api.getUsers();
 Api.getUser(12);
