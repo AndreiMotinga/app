@@ -1,8 +1,8 @@
 import { createStore, compose } from 'redux';
-import todoApp from './reducers';
+import root from './reducers';
 
 const store = createStore(
-  todoApp,
+  root,
   compose(window.devToolsExtension ? window.devToolsExtension() : f => f)
 );
 
