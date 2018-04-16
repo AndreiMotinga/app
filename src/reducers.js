@@ -3,6 +3,7 @@ import { SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE } from './actions';
 
 const initialAuthState = {
   isLoading: false,
+  errors: [],
   currentUser: {
     email: 'andrew.motinga@gmail.com'
   },
@@ -18,6 +19,20 @@ function auth(state = initialAuthState, action) {
   switch (action.type) {
     case SIGNUP_REQUEST:
       return { ...state, isLoading: true };
+
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isLoggedIn: true,
+        currentUser: action.currentUser,
+        headers: action.headers
+      };
+    case SIGNUP_FAILURE:
+    // return { ...state,
+    //   isLoading: false,
+    //   errors: state.errors.concat(action.payload.errors)
+    // }
     default:
       return state;
   }

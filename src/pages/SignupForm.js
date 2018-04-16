@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { requestSignup } from 'actions';
+import { signupUser } from 'actions';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -21,7 +21,8 @@ class SignupForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.requestSignup();
+    const { email, password, password_confirmation } = this.state;
+    this.props.signupUser(email, password, password);
   }
 
   render() {
@@ -45,12 +46,22 @@ class SignupForm extends React.Component {
               </label>
               <br />
               <label>
-                Password: <input type="password" name="password" />
+                Password:{' '}
+                <input
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
               </label>
               <br />
               <label>
                 Password confirmation:{' '}
-                <input type="password" name="password_confirmation" />
+                <input
+                  type="password"
+                  name="password_confirmation"
+                  value={this.state.password}
+                />
               </label>
               <br />
               <input type="submit" value="Submit" />
@@ -68,8 +79,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestSignup: () => {
-      dispatch(requestSignup());
+    signupUser: (email, password, password_confirmation) => {
+      dispatch(signupUser(email, password, password_confirmation));
     }
   };
 };
