@@ -8,6 +8,7 @@ import StrategiesShow from 'pages/StrategiesShow';
 import Faq from 'pages/Faq';
 import Tos from 'pages/Tos';
 import Pp from 'pages/Pp';
+import Auth from 'pages/Auth';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import Typography from 'material-ui/Typography';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/faq" component={Faq} />
           <Route path="/tos" component={Tos} />
           <Route path="/pp" component={Pp} />
+          <Route path="/auth" component={Auth} />
         </div>
         <Footer />
       </div>

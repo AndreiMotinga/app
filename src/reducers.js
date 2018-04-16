@@ -6,8 +6,10 @@ import // ADD_TODO,
 './actions';
 
 const initialAuthState = {
-  currentUser: {},
-  isLoggedIn: false,
+  currentUser: {
+    email: 'andrew.motinga@gmail.com'
+  },
+  isLoggedIn: true,
   headers: {
     uid: '',
     client: '',

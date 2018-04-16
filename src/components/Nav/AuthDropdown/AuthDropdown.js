@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
@@ -10,21 +11,20 @@ class AuthDropdown extends React.Component {
     super(props, context);
 
     this.state = {
-      currentUser: {},
       anchorEl: null
     };
   }
 
-  componentWillMount() {
-    axios
-      .get('/api/users/current.json')
-      .then(res => {
-        this.setState({ currentUser: res.data });
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }
+  // componentWillMount() {
+  //   axios
+  //     .get('/api/users/current.json')
+  //     .then(res => {
+  //       this.setState({ currentUser: res.data });
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     });
+  // }
 
   handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -38,26 +38,25 @@ class AuthDropdown extends React.Component {
     this.setState({ anchorEl: null });
   };
 
-  handleSignOut = () => {
-    axios.delete('/users/sign_out').then(res => {
-      this.setState({ currentUser: {} });
-    });
-  };
+  // handleSignOut = () => {
+  //   axios.delete('/users/sign_out').then(res => {
+  //     this.setState({ currentUser: {} });
+  //   });
+  // };
 
   render() {
     const anchorEl = this.state.anchorEl;
     const open = Boolean(anchorEl);
-    const auth = !!this.state.currentUser.email;
+    const { currentUser, isLoggedIn } = this.props.auth;
 
     return (
       <div className="Nav_right_item">
-        {!auth && (
-          <Button onClick={() => (window.location = '/users/sign_in')}>
-            Sign in
-          </Button>
+        {/* TODO user react router redirect for it */}
+        {!isLoggedIn && (
+          <Button onClick={() => (window.location = '/auth')}>Sign in</Button>
         )}
 
-        {auth && (
+        {isLoggedIn && (
           <div>
             <IconButton
               aria-owns={open ? 'profile' : null}
@@ -92,4 +91,8 @@ class AuthDropdown extends React.Component {
   }
 }
 
-export default AuthDropdown;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(AuthDropdown);
