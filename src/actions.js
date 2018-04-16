@@ -1,26 +1,27 @@
 /*
  * action types
  */
-export const ADD_TODO = 'ADD_TODO';
-export const TOGGLE_TODO = 'TOGGLE_TODO';
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
-/*
- * other constants
- */
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
-};
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
+
 /*
  * action creators
  */
-export function addTodo(text) {
-  return { type: ADD_TODO, text };
+export function requestSignup(email, password, password_confirmation) {
+  return {
+    type: SIGNUP_REQUEST,
+    payload: {
+      email,
+      password,
+      password_confirmation
+    }
+  };
 }
-export function toggleTodo(index) {
-  return { type: TOGGLE_TODO, index };
-}
-export function setVisibilityFilter(filter) {
-  return { type: SET_VISIBILITY_FILTER, filter };
-}
+
+// export function toggleTodo(index) {
+//   return { type: TOGGLE_TODO, index };
+// }
+// export function setVisibilityFilter(filter) {
+//   return { type: SET_VISIBILITY_FILTER, filter };
+// }

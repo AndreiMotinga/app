@@ -1,11 +1,8 @@
 import { combineReducers } from 'redux';
-import // ADD_TODO,
-// TOGGLE_TODO,
-// SET_VISIBILITY_FILTER,
-// VisibilityFilters
-'./actions';
+import { SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE } from './actions';
 
 const initialAuthState = {
+  isLoading: false,
   currentUser: {
     email: 'andrew.motinga@gmail.com'
   },
@@ -19,8 +16,8 @@ const initialAuthState = {
 
 function auth(state = initialAuthState, action) {
   switch (action.type) {
-    //   case SET_VISIBILITY_FILTER:
-    //     return action.filter;
+    case SIGNUP_REQUEST:
+      return { ...state, isLoading: true };
     default:
       return state;
   }

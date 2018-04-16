@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { requestSignup } from 'actions';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -18,40 +20,58 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
+    this.props.requestSignup();
   }
 
   render() {
+    const { isLoading } = this.props.auth;
     return (
       <div>
-        <h1> signup </h1>
-        <form id="signup" onSubmit={this.handleSubmit}>
-          <label>
-            Email:{' '}
-            <input
-              type="email"
-              name="email"
-              onChange={this.handleChange}
-              value={this.state.email}
-              required
-            />
-          </label>
-          <br />
-          <label>
-            Password: <input type="password" name="password" />
-          </label>
-          <br />
-          <label>
-            Password confirmation:{' '}
-            <input type="password" name="password_confirmation" />
-          </label>
-          <br />
-          <input type="submit" value="Submit" />
-        </form>
+        {isLoading && <span>loading...</span>}
+        {!isLoading && (
+          <div>
+            <h1>signup</h1>
+            <form id="signup" onSubmit={this.handleSubmit}>
+              <label>
+                Email:{' '}
+                <input
+                  type="email"
+                  name="email"
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                  required
+                />
+              </label>
+              <br />
+              <label>
+                Password: <input type="password" name="password" />
+              </label>
+              <br />
+              <label>
+                Password confirmation:{' '}
+                <input type="password" name="password_confirmation" />
+              </label>
+              <br />
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        )}
       </div>
     );
   }
 }
 
-export default SignupForm;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+const mapDispatchToProps = dispatch => {
+  return {
+    requestSignup: () => {
+      dispatch(requestSignup());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
