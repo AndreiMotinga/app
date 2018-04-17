@@ -22,7 +22,7 @@ class SignupForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { email, password, password_confirmation } = this.state;
-    this.props.signupUser(email, password, password);
+    this.props.signupUser(email, password, password_confirmation);
   }
 
   render() {
@@ -52,6 +52,7 @@ class SignupForm extends React.Component {
                   name="password"
                   value={this.state.password}
                   onChange={this.handleChange}
+                  required
                 />
               </label>
               <br />
@@ -60,7 +61,9 @@ class SignupForm extends React.Component {
                 <input
                   type="password"
                   name="password_confirmation"
-                  value={this.state.password}
+                  value={this.state.password_confirmation}
+                  onChange={this.handleChange}
+                  required
                 />
               </label>
               <br />

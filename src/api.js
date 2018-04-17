@@ -23,7 +23,7 @@ class Api {
         })
         .then(res => {
           const currentUser = res.data.data;
-          this.setHeaders(res.headers);
+          this.cycleHeaders(res.headers);
           dispatch(signupSuccess());
           dispatch(signinSuccess(currentUser));
         })
@@ -33,14 +33,18 @@ class Api {
     };
   }
 
-  getUser(id) {
-    console.log(`getting user: ${this.baseUrl}/users/${id}`);
-    return `getting user: ${this.baseUrl}/users/${id}`;
+  cycleHeaders(headers) {
+    this.headers = headers;
+    localStorage.setItem('cryptometrics-headers', JSON.stringify(headers));
+    return;
   }
 
-  setHeaders(headers) {
-    console.log(headers);
+  headers() {
+    const headers = localStorage.getItem('cryptometrics-headers');
+    return JSON.parse(headers);
   }
 }
 
-export default new Api();
+const api = new Api();
+
+export default api;
