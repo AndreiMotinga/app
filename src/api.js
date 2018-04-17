@@ -11,11 +11,9 @@ class Api {
     this.baseUrl = process.env.REACT_APP_API_URL;
   }
 
-  createUser(email, password, password_confirmation) {}
-
   registerUser(email, password, password_confirmation) {
     const url = `${this.baseUrl}/auth`;
-    return function(dispatch) {
+    return dispatch => {
       dispatch(signupRequest());
       return axios
         .post(url, {
@@ -25,8 +23,8 @@ class Api {
         })
         .then(res => {
           const currentUser = res.data.data;
+          this.setHeaders(res.headers);
           dispatch(signupSuccess());
-          debugger;
           dispatch(signinSuccess(currentUser));
         })
         .catch(err => {
@@ -38,6 +36,10 @@ class Api {
   getUser(id) {
     console.log(`getting user: ${this.baseUrl}/users/${id}`);
     return `getting user: ${this.baseUrl}/users/${id}`;
+  }
+
+  setHeaders(headers) {
+    console.log(headers);
   }
 }
 

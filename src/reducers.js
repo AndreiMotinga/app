@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
-import { SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE } from './actions';
+import {
+  SIGNUP_REQUEST,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILURE,
+  SIGNIN_SUCCESS
+} from './actions';
 
 const initialAuthState = {
   isLoading: false,
@@ -20,6 +25,13 @@ function auth(state = initialAuthState, action) {
         ...state,
         isLoading: false,
         errors: state.errors.concat(action.error)
+      };
+
+    case SIGNIN_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        currentUser: action.currentUser
       };
 
     default:

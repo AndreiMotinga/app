@@ -30,9 +30,9 @@ export function createUser(email, password, password_confirmation) {
 }
 
 export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
-export function signinSuccess(user) {
+export function signinSuccess(currentUser) {
   return {
     type: SIGNIN_SUCCESS,
-    user
+    currentUser
   };
 }
