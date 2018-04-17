@@ -5,6 +5,7 @@ import {
   signupFailure,
   signinSuccess
 } from './actions';
+import history from './history';
 
 class Api {
   constructor() {
@@ -26,6 +27,7 @@ class Api {
           this.cycleHeaders(res.headers);
           dispatch(signupSuccess());
           dispatch(signinSuccess(currentUser));
+          history.push('/');
         })
         .catch(err => {
           dispatch(signupFailure(err));

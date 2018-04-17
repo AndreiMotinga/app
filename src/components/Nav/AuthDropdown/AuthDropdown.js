@@ -65,6 +65,7 @@ class AuthDropdown extends React.Component {
               color="inherit"
             >
               <AccountCircle />
+              {currentUser.email}
             </IconButton>
             <Menu
               id="profile"

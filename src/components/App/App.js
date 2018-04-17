@@ -10,13 +10,14 @@ import Tos from 'pages/Tos';
 import Pp from 'pages/Pp';
 import Auth from 'pages/Auth';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
+import history from '../../history';
 // import Typography from 'material-ui/Typography';
 // import PlansModal from 'components/PlansModal';
 
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <div>
         <CssBaseline />
         <Nav />
