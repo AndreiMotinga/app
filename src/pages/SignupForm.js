@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signupUser } from 'actions';
+import { createUser } from 'actions';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -80,7 +80,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     signupUser: (email, password, password_confirmation) => {
-      dispatch(signupUser(email, password, password_confirmation));
+      dispatch(createUser(email, password, password_confirmation));
     }
   };
 };
