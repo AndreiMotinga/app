@@ -21,6 +21,3 @@ registerServiceWorker();
 // if (module.hot) {
 //   module.hot.accept();
 // }
-
-Api.getUsers();
-Api.getUser(12);

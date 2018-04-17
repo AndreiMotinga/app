@@ -1,14 +1,16 @@
-// where to define constants
-// how to split in multiple files?
+import axios from 'axios';
 
 class Api {
   constructor() {
     this.baseUrl = process.env.REACT_APP_API_URL;
   }
 
-  getUsers() {
-    console.log(`getting users: ${this.baseUrl}/users`);
-    return `getting users: ${this.baseUrl}/users`;
+  createUser(email, password, password_confirmation) {
+    return axios.post(`${this.baseUrl}/auth`, {
+      email,
+      password,
+      password_confirmation
+    });
   }
 
   getUser(id) {

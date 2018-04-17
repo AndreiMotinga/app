@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Api from './api';
 
 /*
  * action creators
@@ -11,31 +12,31 @@ export function requestSignup() {
 }
 
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
-function signupSuccess(currentUser, headers) {
+function signupSuccess() {
   return {
-    type: SIGNUP_SUCCESS,
-    currentUser
+    type: SIGNUP_SUCCESS
   };
 }
 
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
+function signupFailure(err) {
+  return {
+    type: SIGNUP_FAILURE,
+    error: err
+  };
+}
 
 export function signupUser(email, password, password_confirmation) {
   const url = `${process.env.REACT_APP_API_URL}/auth`;
   return function(dispatch) {
     dispatch(requestSignup());
-    axios
-      .post(url, {
-        email,
-        password,
-        password_confirmation
+    Api.createUser(email, password, password_confirmation)
+      .then(res => {
+        const currentUser = res.data.data;
+        dispatch(signupSuccess);
       })
-      .then(function(response) {
-        const currentUser = response.data.data;
-        dispatch(signupSuccess(currentUser));
-      })
-      .catch(function(error) {
-        console.error(error);
+      .catch(err => {
+        dispatch(signupFailure(err));
       });
   };
 }
