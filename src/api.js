@@ -3,7 +3,8 @@ import {
   signupRequest,
   signupSuccess,
   signupFailure,
-  signinSuccess
+  signinSuccess,
+  init
 } from './actions';
 import history from './history';
 
@@ -31,6 +32,26 @@ class Api {
         })
         .catch(err => {
           dispatch(signupFailure(err));
+        });
+    };
+  }
+
+  fetchCurrentUser() {
+    const url = `${this.baseUrl}/auth/validate_token`;
+    const headers = this.headers();
+    return dispatch => {
+      return axios
+        .get(url, {
+          headers: headers
+        })
+        .then(res => {
+          const currentUser = res.data.data;
+          this.cycleHeaders(res.headers);
+          dispatch(init(currentUser));
+        })
+        .catch(err => {
+          debugger;
+          dispatch(init({}));
         });
     };
   }

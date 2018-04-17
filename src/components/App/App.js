@@ -12,29 +12,57 @@ import Auth from 'pages/Auth';
 
 import { Router, Route } from 'react-router-dom';
 import history from '../../history';
+import { connect } from 'react-redux';
+import { fetchCurrentUser } from '../../actions';
 // import Typography from 'material-ui/Typography';
 // import PlansModal from 'components/PlansModal';
 
-function App() {
-  return (
-    <Router history={history}>
+class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchCurrentUser();
+  }
+
+  render() {
+    const { isLoading } = this.props.auth;
+
+    return (
       <div>
-        <CssBaseline />
-        <Nav />
-        <div className="App">
-          {/* <PlansModal /> */}
-          <Route exact path="/" component={Home} />
-          <Route path="/posts/:id" component={PostsShow} />
-          <Route path="/strategies/:id" component={StrategiesShow} />
-          <Route path="/faq" component={Faq} />
-          <Route path="/tos" component={Tos} />
-          <Route path="/pp" component={Pp} />
-          <Route path="/auth" component={Auth} />
-        </div>
-        <Footer />
+        {isLoading && <span>Loading...</span>}
+
+        {!isLoading && (
+          <Router history={history}>
+            <div>
+              <CssBaseline />
+              <Nav />
+              <div className="App">
+                {/* <PlansModal /> */}
+                <Route exact path="/" component={Home} />
+                <Route path="/posts/:id" component={PostsShow} />
+                <Route path="/strategies/:id" component={StrategiesShow} />
+                <Route path="/faq" component={Faq} />
+                <Route path="/tos" component={Tos} />
+                <Route path="/pp" component={Pp} />
+                <Route path="/auth" component={Auth} />
+              </div>
+              <Footer />
+            </div>
+          </Router>
+        )}
       </div>
-    </Router>
-  );
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchCurrentUser: () => {
+      dispatch(fetchCurrentUser());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

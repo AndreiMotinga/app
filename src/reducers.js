@@ -3,17 +3,26 @@ import {
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
   SIGNUP_FAILURE,
-  SIGNIN_SUCCESS
+  SIGNIN_SUCCESS,
+  INIT
 } from './actions';
+import Api from './api';
 
 const initialAuthState = {
-  isLoading: false,
+  isLoading: true,
   errors: [],
   currentUser: {}
 };
 
 function auth(state = initialAuthState, action) {
   switch (action.type) {
+    case INIT:
+      return {
+        ...state,
+        isLoading: false,
+        currentUser: action.currentUser
+      };
+
     case SIGNUP_REQUEST:
       return { ...state, isLoading: true };
 

@@ -25,14 +25,27 @@ export function signupFailure(err) {
   };
 }
 
-export function createUser(email, password, password_confirmation) {
-  return Api.registerUser(email, password, password_confirmation);
-}
-
 export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
 export function signinSuccess(currentUser) {
   return {
     type: SIGNIN_SUCCESS,
+    currentUser
+  };
+}
+
+// todo can you get rid of it?
+export function createUser(email, password, password_confirmation) {
+  return Api.registerUser(email, password, password_confirmation);
+}
+
+export function fetchCurrentUser() {
+  return Api.fetchCurrentUser();
+}
+
+export const INIT = 'INIT';
+export function init(currentUser) {
+  return {
+    type: INIT,
     currentUser
   };
 }
