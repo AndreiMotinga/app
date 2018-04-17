@@ -50,7 +50,6 @@ class Api {
           dispatch(init(currentUser));
         })
         .catch(err => {
-          debugger;
           dispatch(init({}));
         });
     };
@@ -65,6 +64,10 @@ class Api {
   headers() {
     const headers = localStorage.getItem('cryptometrics-headers');
     return JSON.parse(headers);
+  }
+
+  logout() {
+    this.cycleHeaders({});
   }
 }
 

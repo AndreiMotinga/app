@@ -4,9 +4,9 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_FAILURE,
   SIGNIN_SUCCESS,
+  LOGOUT,
   INIT
 } from './actions';
-import Api from './api';
 
 const initialAuthState = {
   isLoading: true,
@@ -22,6 +22,9 @@ function auth(state = initialAuthState, action) {
         isLoading: false,
         currentUser: action.currentUser
       };
+
+    case LOGOUT:
+      return { ...state, currentUser: {} };
 
     case SIGNUP_REQUEST:
       return { ...state, isLoading: true };

@@ -4,6 +4,8 @@ import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
+import Api from '../../../api';
+import { logout } from '../../../actions';
 
 class AuthDropdown extends React.Component {
   constructor(props, context) {
@@ -37,11 +39,10 @@ class AuthDropdown extends React.Component {
     this.setState({ anchorEl: null });
   };
 
-  // handleSignOut = () => {
-  //   axios.delete('/users/sign_out').then(res => {
-  //     this.setState({ currentUser: {} });
-  //   });
-  // };
+  handleSignOut = () => {
+    Api.logout();
+    this.props.logout();
+  };
 
   render() {
     const anchorEl = this.state.anchorEl;
@@ -96,4 +97,12 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(AuthDropdown);
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => {
+      dispatch(logout());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthDropdown);

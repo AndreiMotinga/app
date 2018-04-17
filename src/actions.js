@@ -42,6 +42,13 @@ export function fetchCurrentUser() {
   return Api.fetchCurrentUser();
 }
 
+export const LOGOUT = 'LOGOUt';
+export function logout() {
+  return {
+    type: LOGOUT
+  };
+}
+
 export const INIT = 'INIT';
 export function init(currentUser) {
   return {
