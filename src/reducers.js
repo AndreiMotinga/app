@@ -16,6 +16,25 @@ function auth(state = initialAuthState, action) {
         currentUser: action.currentUser
       };
 
+    /*
+     * signup actions
+     */
+    case Auth.SIGNUP_REQUEST:
+      return { ...state, isLoading: true };
+
+    case Auth.SIGNUP_SUCCESS:
+      return { ...state, isLoading: false };
+
+    case Auth.SIGNUP_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errors: action.errors
+      };
+
+    /*
+     * signin actions
+     */
     case Auth.SIGNIN_REQUEST:
       return { ...state, isLoading: true };
 
@@ -33,6 +52,9 @@ function auth(state = initialAuthState, action) {
         errors: action.errors
       };
 
+    /*
+     * signout actions
+     */
     case Auth.SIGNOUT_REQUEST:
       return { ...state, isLoading: true };
 
@@ -48,26 +70,6 @@ function auth(state = initialAuthState, action) {
         ...state,
         isLoading: false,
         errors: action.errors
-      };
-
-    case Auth.SIGNUP_REQUEST:
-      return { ...state, isLoading: true };
-
-    case Auth.SIGNUP_SUCCESS:
-      return { ...state, isLoading: false };
-
-    case Auth.SIGNUP_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        errors: action.errors
-      };
-
-    case Auth.SIGNIN_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        currentUser: action.currentUser
       };
 
     default:

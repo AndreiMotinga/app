@@ -75,8 +75,8 @@ export function signinFailure(errors) {
 /**
  * singout flow
  */
-export function signoutUser() {
-  return Api.signoutUser();
+export function signout() {
+  return Api.signout();
 }
 
 export function signoutRequest() {

@@ -5,7 +5,7 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
 import { Link } from 'react-router-dom';
-import { signoutUser } from 'actions';
+import { signout } from 'actions';
 
 class AuthDropdown extends React.Component {
   constructor(props, context) {
@@ -36,13 +36,13 @@ class AuthDropdown extends React.Component {
     const anchorEl = this.state.anchorEl;
     const open = Boolean(anchorEl);
     const { currentUser } = this.props.auth;
-    const isLoggedIn = !!currentUser.email;
+    const isSignedIn = !!currentUser.email;
 
     return (
       <div className="Nav_right_item">
-        {!isLoggedIn && <Link to="/auth">Sign in</Link>}
+        {!isSignedIn && <Link to="/auth">Sign in</Link>}
 
-        {isLoggedIn && (
+        {isSignedIn && (
           <div>
             <IconButton
               aria-owns={open ? 'profile' : null}
@@ -85,7 +85,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     signout: () => {
-      dispatch(signoutUser());
+      dispatch(signout());
     }
   };
 };
