@@ -28,7 +28,7 @@ class SignupForm extends React.Component {
       return;
     }
 
-    this.props.signupUser(email, password, password_confirmation);
+    this.props.signupUser(email, password);
   }
 
   render() {
@@ -98,8 +98,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    signupUser: (email, password, password_confirmation) => {
-      dispatch(createUser(email, password, password_confirmation));
+    signupUser: (email, password) => {
+      dispatch(createUser(email, password));
     }
   };
 };

@@ -15,7 +15,7 @@ class Api {
     this.baseUrl = process.env.REACT_APP_API_URL;
   }
 
-  registerUser(email, password, password_confirmation) {
+  registerUser(email, password) {
     const url = `${this.baseUrl}/auth`;
     return dispatch => {
       dispatch(signupRequest());
@@ -23,7 +23,7 @@ class Api {
         .post(url, {
           email,
           password,
-          password_confirmation
+          password_confirmation: password
         })
         .then(res => {
           const currentUser = res.data.data;

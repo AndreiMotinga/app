@@ -56,8 +56,8 @@ export function signinSuccess(currentUser) {
 }
 
 // todo can you get rid of it?
-export function createUser(email, password, password_confirmation) {
-  return Api.registerUser(email, password, password_confirmation);
+export function createUser(email, password) {
+  return Api.registerUser(email, password);
 }
 
 // todo can you get rid of it?
