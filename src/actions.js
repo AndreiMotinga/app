@@ -46,8 +46,8 @@ export function signupFailure(errors) {
  * singin flow
  */
 
-export function fetchLogin(email, password) {
-  return Api.login(email, password);
+export function signin(email, password) {
+  return Api.signin(email, password);
 }
 
 export function loginRequest(email, password) {

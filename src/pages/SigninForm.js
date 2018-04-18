@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchLogin } from 'actions';
+import { signin } from 'actions';
 
 class SigninForm extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class SigninForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { email, password } = this.state;
-    this.props.login(email, password);
+    this.props.handleSignin(email, password);
   }
 
   render() {
@@ -64,15 +64,14 @@ class SigninForm extends React.Component {
   }
 }
 
-// TODO no need state here
 const mapStateToProps = state => ({
   auth: state.auth
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (email, password) => {
-      dispatch(fetchLogin(email, password));
+    handleSignin: (email, password) => {
+      dispatch(signin(email, password));
     }
   };
 };

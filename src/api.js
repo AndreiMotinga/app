@@ -69,7 +69,7 @@ class Api {
     return JSON.parse(headers);
   }
 
-  login(email, password) {
+  signin(email, password) {
     const url = `${this.baseUrl}/auth/sign_in`;
     return dispatch => {
       return axios
@@ -80,7 +80,6 @@ class Api {
         .then(res => {
           const currentUser = res.data.data;
           this.cycleHeaders(res.headers);
-          // TODO rename to login
           dispatch(signinSuccess(currentUser));
           history.push('/');
         })
@@ -100,7 +99,6 @@ class Api {
         })
         .then(res => {
           this.cycleHeaders(res.headers);
-          // TODO rename to login
           dispatch(signinSuccess({}));
         })
         .catch(err => {
