@@ -1,17 +1,5 @@
 import { combineReducers } from 'redux';
-import {
-  SIGNUP_REQUEST,
-  SIGNUP_SUCCESS,
-  SIGNUP_FAILURE,
-  SIGNIN_SUCCESS,
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-  LOGOUT_REQUEST,
-  LOGOUT_SUCCESS,
-  LOGOUT_FAILURE,
-  INIT
-} from './actions';
+import { Auth } from './constants';
 
 const initialAuthState = {
   isLoading: true,
@@ -21,61 +9,61 @@ const initialAuthState = {
 
 function auth(state = initialAuthState, action) {
   switch (action.type) {
-    case INIT:
+    case Auth.INIT:
       return {
         ...state,
         isLoading: false,
         currentUser: action.currentUser
       };
 
-    case LOGIN_REQUEST:
+    case Auth.LOGIN_REQUEST:
       return { ...state, isLoading: true };
 
-    case LOGIN_SUCCESS:
+    case Auth.LOGIN_SUCCESS:
       return {
         ...state,
         isLoading: false,
         currentUser: action.currentUser
       };
 
-    case LOGIN_FAILURE:
+    case Auth.LOGIN_FAILURE:
       return {
         ...state,
         isLoading: false,
         errors: action.errors
       };
 
-    case LOGOUT_REQUEST:
+    case Auth.LOGOUT_REQUEST:
       return { ...state, isLoading: true };
 
-    case LOGOUT_SUCCESS:
+    case Auth.LOGOUT_SUCCESS:
       return {
         ...state,
         isLoading: false,
         currentUser: {}
       };
 
-    case LOGOUT_FAILURE:
+    case Auth.LOGOUT_FAILURE:
       return {
         ...state,
         isLoading: false,
         errors: action.errors
       };
 
-    case SIGNUP_REQUEST:
+    case Auth.SIGNUP_REQUEST:
       return { ...state, isLoading: true };
 
-    case SIGNUP_SUCCESS:
+    case Auth.SIGNUP_SUCCESS:
       return { ...state, isLoading: false };
 
-    case SIGNUP_FAILURE:
+    case Auth.SIGNUP_FAILURE:
       return {
         ...state,
         isLoading: false,
         errors: action.errors
       };
 
-    case SIGNIN_SUCCESS:
+    case Auth.SIGNIN_SUCCESS:
       return {
         ...state,
         isLoading: false,
