@@ -20,7 +20,7 @@ import history from './history';
 class Api {
   constructor() {
     this.baseUrl = process.env.REACT_APP_API_URL;
-    this.key = 'cryptometrics-headers';
+    this.key = process.env.REACT_APP_LOCAL_STORAGE_KEY;
   }
 
   /**
@@ -37,8 +37,12 @@ class Api {
    * call this with recevied headers to save uid, client and token.
    */
   cycleHeaders(headers) {
+    // update headers on Api itslef
     this.headers = headers;
+
+    // update headers in localStorage
     localStorage.setItem(this.key, JSON.stringify(headers));
+
     return;
   }
 
