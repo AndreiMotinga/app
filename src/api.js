@@ -4,6 +4,8 @@ import {
   signupSuccess,
   signupFailure,
   signinSuccess,
+  loginFailure,
+  logoutSuccess,
   init
 } from './actions';
 import history from './history';
@@ -31,14 +33,15 @@ class Api {
           history.push('/');
         })
         .catch(err => {
-          dispatch(signupFailure(err));
+          const errors = err.response.data.errors.full_messages;
+          dispatch(signupFailure(errors));
         });
     };
   }
 
   fetchCurrentUser() {
-    const url = `${this.baseUrl}/auth/validate_token`;
     const headers = this.headers();
+    const url = `${this.baseUrl}/auth/validate_token`;
     return dispatch => {
       return axios
         .get(url, {
@@ -66,8 +69,45 @@ class Api {
     return JSON.parse(headers);
   }
 
-  logout() {
-    this.cycleHeaders({});
+  login(email, password) {
+    const url = `${this.baseUrl}/auth/sign_in`;
+    return dispatch => {
+      return axios
+        .post(url, {
+          email,
+          password
+        })
+        .then(res => {
+          const currentUser = res.data.data;
+          this.cycleHeaders(res.headers);
+          // TODO rename to login
+          dispatch(signinSuccess(currentUser));
+          history.push('/');
+        })
+        .catch(err => {
+          const errors = err.response.data.errors;
+          dispatch(loginFailure(errors));
+        });
+    };
+  }
+
+  logoutUser() {
+    const url = `${this.baseUrl}/auth/sign_out`;
+    return dispatch => {
+      return axios
+        .delete(url, {
+          headers: this.headers
+        })
+        .then(res => {
+          this.cycleHeaders(res.headers);
+          // TODO rename to login
+          dispatch(signinSuccess({}));
+        })
+        .catch(err => {
+          const errors = err.response.data.errors.full_messages;
+          dispatch(loginFailure(errors));
+        });
+    };
   }
 }
 

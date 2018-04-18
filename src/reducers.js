@@ -4,7 +4,12 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_FAILURE,
   SIGNIN_SUCCESS,
-  LOGOUT,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOGOUT_REQUEST,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAILURE,
   INIT
 } from './actions';
 
@@ -23,8 +28,39 @@ function auth(state = initialAuthState, action) {
         currentUser: action.currentUser
       };
 
-    case LOGOUT:
-      return { ...state, currentUser: {} };
+    case LOGIN_REQUEST:
+      return { ...state, isLoading: true };
+
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        currentUser: action.currentUser
+      };
+
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errors: action.errors
+      };
+
+    case LOGOUT_REQUEST:
+      return { ...state, isLoading: true };
+
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        currentUser: {}
+      };
+
+    case LOGOUT_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errors: action.errors
+      };
 
     case SIGNUP_REQUEST:
       return { ...state, isLoading: true };
@@ -36,7 +72,7 @@ function auth(state = initialAuthState, action) {
       return {
         ...state,
         isLoading: false,
-        errors: state.errors.concat(action.error)
+        errors: action.errors
       };
 
     case SIGNIN_SUCCESS:

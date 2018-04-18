@@ -18,10 +18,32 @@ export function signupSuccess() {
 }
 
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
-export function signupFailure(err) {
+export function signupFailure(errors) {
   return {
     type: SIGNUP_FAILURE,
-    error: err
+    errors
+  };
+}
+
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+export function logoutRequest() {
+  return {
+    type: LOGOUT_REQUEST
+  };
+}
+
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export function logoutSuccess() {
+  return {
+    type: LOGOUT_SUCCESS
+  };
+}
+
+export const LOGOUT_FAILURE = 'LOGIN_FAILURE';
+export function logoutFailure(errors) {
+  return {
+    type: LOGOUT_FAILURE,
+    errors
   };
 }
 
@@ -38,14 +60,41 @@ export function createUser(email, password, password_confirmation) {
   return Api.registerUser(email, password, password_confirmation);
 }
 
+// todo can you get rid of it?
+export function logoutUser() {
+  return Api.logoutUser();
+}
+
 export function fetchCurrentUser() {
   return Api.fetchCurrentUser();
 }
 
-export const LOGOUT = 'LOGOUt';
-export function logout() {
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export function loginRequest(email, password) {
   return {
-    type: LOGOUT
+    type: LOGIN_REQUEST,
+    email,
+    password
+  };
+}
+
+export function fetchLogin(email, password) {
+  return Api.login(email, password);
+}
+
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export function loginSuccess(currentUser) {
+  return {
+    type: LOGIN_SUCCESS,
+    currentUser
+  };
+}
+
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export function loginFailure(errors) {
+  return {
+    type: LOGIN_FAILURE,
+    errors
   };
 }
 

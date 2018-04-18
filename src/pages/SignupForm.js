@@ -26,10 +26,15 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    const { isLoading } = this.props.auth;
+    const { isLoading, errors } = this.props.auth;
+    const err_messages = errors.map(err => <li>{err}</li>);
+
     return (
       <div>
         {isLoading && <span>loading...</span>}
+
+        {!!errors.length && <ul>{err_messages}</ul>}
+
         {!isLoading && (
           <div>
             <h1>signup</h1>
@@ -69,6 +74,8 @@ class SignupForm extends React.Component {
               <br />
               <input type="submit" value="Submit" />
             </form>
+
+            <div id="errors" />
           </div>
         )}
       </div>

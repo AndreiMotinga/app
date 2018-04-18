@@ -4,8 +4,8 @@ import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
-import Api from '../../../api';
-import { logout } from '../../../actions';
+import { logoutUser } from '../../../actions';
+import { Link } from 'react-router-dom';
 
 class AuthDropdown extends React.Component {
   constructor(props, context) {
@@ -15,17 +15,6 @@ class AuthDropdown extends React.Component {
       anchorEl: null
     };
   }
-
-  // componentWillMount() {
-  //   axios
-  //     .get('/api/users/current.json')
-  //     .then(res => {
-  //       this.setState({ currentUser: res.data });
-  //     })
-  //     .catch(err => {
-  //       console.error(err);
-  //     });
-  // }
 
   handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -40,7 +29,6 @@ class AuthDropdown extends React.Component {
   };
 
   handleSignOut = () => {
-    Api.logout();
     this.props.logout();
   };
 
@@ -52,10 +40,7 @@ class AuthDropdown extends React.Component {
 
     return (
       <div className="Nav_right_item">
-        {/* TODO user react router redirect for it */}
-        {!isLoggedIn && (
-          <Button onClick={() => (window.location = '/auth')}>Sign in</Button>
-        )}
+        {!isLoggedIn && <Link to="/auth">Sign in</Link>}
 
         {isLoggedIn && (
           <div>
@@ -100,7 +85,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => {
-      dispatch(logout());
+      dispatch(logoutUser());
     }
   };
 };
