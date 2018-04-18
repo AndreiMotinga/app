@@ -1,14 +1,16 @@
 // index.js
 import React from 'react';
 import { render } from 'react-dom';
-import { StripeProvider } from 'react-stripe-elements';
+import { StripeProvider, Elements } from 'react-stripe-elements';
 
-import MyStoreCheckout from './MyStoreCheckout';
+import InjectedCheckoutForm from './CheckoutForm';
 
 const Stripe = () => {
   return (
     <StripeProvider apiKey="pk_test_lmbfoH6z0BtWM4D6k60lIfJU">
-      <MyStoreCheckout />
+      <Elements>
+        <InjectedCheckoutForm />
+      </Elements>
     </StripeProvider>
   );
 };
