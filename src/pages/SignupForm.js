@@ -8,7 +8,8 @@ class SignupForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      password_confirmation: ''
+      password_confirmation: '',
+      pass_error: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,6 +23,11 @@ class SignupForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { email, password, password_confirmation } = this.state;
+    if (password !== password_confirmation) {
+      this.setState({ pass_error: true });
+      return;
+    }
+
     this.props.signupUser(email, password, password_confirmation);
   }
 
@@ -71,11 +77,14 @@ class SignupForm extends React.Component {
                   required
                 />
               </label>
+              {this.state.pass_error && (
+                <span id="password-confirmation-error">
+                  Password confirmation doesn't match Password
+                </span>
+              )}
               <br />
               <input type="submit" value="Submit" />
             </form>
-
-            <div id="errors" />
           </div>
         )}
       </div>
