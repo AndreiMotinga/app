@@ -16,34 +16,34 @@ function auth(state = initialAuthState, action) {
         currentUser: action.currentUser
       };
 
-    case Auth.LOGIN_REQUEST:
+    case Auth.SIGNIN_REQUEST:
       return { ...state, isLoading: true };
 
-    case Auth.LOGIN_SUCCESS:
+    case Auth.SIGNIN_SUCCESS:
       return {
         ...state,
         isLoading: false,
         currentUser: action.currentUser
       };
 
-    case Auth.LOGIN_FAILURE:
+    case Auth.SIGNIN_FAILURE:
       return {
         ...state,
         isLoading: false,
         errors: action.errors
       };
 
-    case Auth.LOGOUT_REQUEST:
+    case Auth.SIGNOUT_REQUEST:
       return { ...state, isLoading: true };
 
-    case Auth.LOGOUT_SUCCESS:
+    case Auth.SIGNOUT_SUCCESS:
       return {
         ...state,
         isLoading: false,
         currentUser: {}
       };
 
-    case Auth.LOGOUT_FAILURE:
+    case Auth.SIGNOUT_FAILURE:
       return {
         ...state,
         isLoading: false,

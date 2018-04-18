@@ -5,7 +5,7 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
 import { Link } from 'react-router-dom';
-import { logoutUser } from 'actions';
+import { signoutUser } from 'actions';
 
 class AuthDropdown extends React.Component {
   constructor(props, context) {
@@ -29,7 +29,7 @@ class AuthDropdown extends React.Component {
   };
 
   handleSignOut = () => {
-    this.props.logout();
+    this.props.signout();
   };
 
   render() {
@@ -84,8 +84,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => {
-      dispatch(logoutUser());
+    signout: () => {
+      dispatch(signoutUser());
     }
   };
 };

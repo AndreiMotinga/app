@@ -50,25 +50,11 @@ export function signin(email, password) {
   return Api.signin(email, password);
 }
 
-export function loginRequest(email, password) {
+export function signinRequest(email, password) {
   return {
-    type: Auth.LOGIN_REQUEST,
+    type: Auth.SIGNIN_REQUEST,
     email,
     password
-  };
-}
-
-export function loginSuccess(currentUser) {
-  return {
-    type: Auth.LOGIN_SUCCESS,
-    currentUser
-  };
-}
-
-export function loginFailure(errors) {
-  return {
-    type: Auth.LOGIN_FAILURE,
-    errors
   };
 }
 
@@ -79,28 +65,35 @@ export function signinSuccess(currentUser) {
   };
 }
 
+export function signinFailure(errors) {
+  return {
+    type: Auth.SIGNIN_FAILURE,
+    errors
+  };
+}
+
 /**
  * singout flow
  */
-export function logoutUser() {
-  return Api.logoutUser();
+export function signoutUser() {
+  return Api.signoutUser();
 }
 
-export function logoutRequest() {
+export function signoutRequest() {
   return {
-    type: Auth.LOGOUT_REQUEST
+    type: Auth.SIGNOUT_REQUEST
   };
 }
 
-export function logoutSuccess() {
+export function signoutSuccess() {
   return {
-    type: Auth.LOGOUT_SUCCESS
+    type: Auth.SIGNOUT_SUCCESS
   };
 }
 
-export function logoutFailure(errors) {
+export function signoutFailure(errors) {
   return {
-    type: Auth.LOGOUT_FAILURE,
+    type: Auth.SIGNOUT_FAILURE,
     errors
   };
 }

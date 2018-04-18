@@ -1,12 +1,13 @@
 import axios from 'axios';
 import {
+  init,
   signupRequest,
   signupSuccess,
   signupFailure,
+  signinRequest,
   signinSuccess,
-  loginFailure,
-  logoutSuccess,
-  init
+  signinFailure,
+  signoutSuccess
 } from './actions';
 import history from './history';
 
@@ -72,6 +73,7 @@ class Api {
   signin(email, password) {
     const url = `${this.baseUrl}/auth/sign_in`;
     return dispatch => {
+      dispatch(signinRequest());
       return axios
         .post(url, {
           email,
@@ -85,7 +87,7 @@ class Api {
         })
         .catch(err => {
           const errors = err.response.data.errors;
-          dispatch(loginFailure(errors));
+          dispatch(signinFailure(errors));
         });
     };
   }
@@ -99,11 +101,11 @@ class Api {
         })
         .then(res => {
           this.cycleHeaders(res.headers);
-          dispatch(signinSuccess({}));
+          dispatch(signoutSuccess());
         })
         .catch(err => {
           const errors = err.response.data.errors.full_messages;
-          dispatch(loginFailure(errors));
+          dispatch(signinFailure(errors));
         });
     };
   }
