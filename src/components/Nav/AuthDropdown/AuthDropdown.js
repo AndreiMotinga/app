@@ -4,8 +4,8 @@ import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
-import { logoutUser } from '../../../actions';
 import { Link } from 'react-router-dom';
+import { logoutUser } from 'actions';
 
 class AuthDropdown extends React.Component {
   constructor(props, context) {

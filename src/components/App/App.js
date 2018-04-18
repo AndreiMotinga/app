@@ -13,13 +13,13 @@ import Auth from 'pages/Auth';
 import { Router, Route } from 'react-router-dom';
 import history from '../../history';
 import { connect } from 'react-redux';
-import { fetchCurrentUser } from '../../actions';
+import { initUser } from '../../actions';
 // import Typography from 'material-ui/Typography';
 // import PlansModal from 'components/PlansModal';
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.fetchCurrentUser();
+    this.props.initUser();
   }
 
   render() {
@@ -59,8 +59,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCurrentUser: () => {
-      dispatch(fetchCurrentUser());
+    initUser: () => {
+      dispatch(initUser());
     }
   };
 };

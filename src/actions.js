@@ -1,6 +1,28 @@
 import Api from './api';
 import { Auth } from './constants';
 
+/**
+ * Initial setup
+ */
+
+export function initUser() {
+  return Api.initUser();
+}
+
+export function init(currentUser) {
+  return {
+    type: Auth.INIT,
+    currentUser
+  };
+}
+
+/**
+ * singup flow
+ */
+export function signup(email, password) {
+  return Api.signup(email, password);
+}
+
 export function signupRequest() {
   return {
     type: Auth.SIGNUP_REQUEST
@@ -20,44 +42,12 @@ export function signupFailure(errors) {
   };
 }
 
-export function logoutRequest() {
-  return {
-    type: Auth.LOGOUT_REQUEST
-  };
-}
+/**
+ * singin flow
+ */
 
-export function logoutSuccess() {
-  return {
-    type: Auth.LOGOUT_SUCCESS
-  };
-}
-
-export function logoutFailure(errors) {
-  return {
-    type: Auth.LOGOUT_FAILURE,
-    errors
-  };
-}
-
-export function signinSuccess(currentUser) {
-  return {
-    type: Auth.SIGNIN_SUCCESS,
-    currentUser
-  };
-}
-
-// todo can you get rid of it?
-export function createUser(email, password) {
-  return Api.registerUser(email, password);
-}
-
-// todo can you get rid of it?
-export function logoutUser() {
-  return Api.logoutUser();
-}
-
-export function fetchCurrentUser() {
-  return Api.fetchCurrentUser();
+export function fetchLogin(email, password) {
+  return Api.login(email, password);
 }
 
 export function loginRequest(email, password) {
@@ -66,10 +56,6 @@ export function loginRequest(email, password) {
     email,
     password
   };
-}
-
-export function fetchLogin(email, password) {
-  return Api.login(email, password);
 }
 
 export function loginSuccess(currentUser) {
@@ -86,9 +72,35 @@ export function loginFailure(errors) {
   };
 }
 
-export function init(currentUser) {
+export function signinSuccess(currentUser) {
   return {
-    type: Auth.INIT,
+    type: Auth.SIGNIN_SUCCESS,
     currentUser
+  };
+}
+
+/**
+ * singout flow
+ */
+export function logoutUser() {
+  return Api.logoutUser();
+}
+
+export function logoutRequest() {
+  return {
+    type: Auth.LOGOUT_REQUEST
+  };
+}
+
+export function logoutSuccess() {
+  return {
+    type: Auth.LOGOUT_SUCCESS
+  };
+}
+
+export function logoutFailure(errors) {
+  return {
+    type: Auth.LOGOUT_FAILURE,
+    errors
   };
 }

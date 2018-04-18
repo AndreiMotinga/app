@@ -15,7 +15,7 @@ class Api {
     this.baseUrl = process.env.REACT_APP_API_URL;
   }
 
-  registerUser(email, password) {
+  signup(email, password) {
     const url = `${this.baseUrl}/auth`;
     return dispatch => {
       dispatch(signupRequest());
@@ -39,7 +39,7 @@ class Api {
     };
   }
 
-  fetchCurrentUser() {
+  initUser() {
     const headers = this.headers();
     const url = `${this.baseUrl}/auth/validate_token`;
     return dispatch => {
