@@ -6,7 +6,9 @@ class PostsShow extends React.Component {
     super(props);
 
     this.state = {
-      post: {}
+      post: {
+        attributes: {}
+      }
     };
   }
 
@@ -15,7 +17,7 @@ class PostsShow extends React.Component {
     axios
       .get(`${process.env.REACT_APP_API_URL}/posts/${id}`)
       .then(res => {
-        this.setState({ post: res.data });
+        this.setState({ post: res.data.data });
       })
       .catch(err => {
         console.error(err);
@@ -26,8 +28,8 @@ class PostsShow extends React.Component {
     return (
       <div>
         <h2>Post id is {post.id}</h2>
-        <h2>{post.title}</h2>
-        <p>{post.body}</p>
+        <h2>{post.attributes.title}</h2>
+        <p>{post.attributes.body}</p>
       </div>
     );
   }
