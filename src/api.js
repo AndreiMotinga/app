@@ -160,11 +160,11 @@ class Api {
    */
   subscribe(token) {
     const url = `${this.baseUrl}/subscriptions`;
-    const headers = this.headers
+    const headers = this.headers;
     return dispatch => {
       dispatch(subscribeRequest());
       return axios
-        .post(url, { token } , { headers })
+        .post(url, { token }, { headers })
         .then(res => {
           this.cycleHeaders(res.headers);
           // NOTE api response is slightly different format from init()

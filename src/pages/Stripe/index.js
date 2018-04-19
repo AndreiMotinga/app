@@ -1,7 +1,7 @@
 // index.js
 import React from 'react';
 import { StripeProvider, Elements } from 'react-stripe-elements';
-import './CheckoutForm.css'
+import './CheckoutForm.css';
 
 import CheckoutForm from './CheckoutForm';
 

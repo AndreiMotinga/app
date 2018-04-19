@@ -4,7 +4,7 @@ import {
   Auth,
   SUBSCRIPTION_REQUEST,
   SUBSCRIPTION_SUCCESS,
-  SUBSCRIPTION_FAILURE,
+  SUBSCRIPTION_FAILURE
 } from './constants';
 
 /**
