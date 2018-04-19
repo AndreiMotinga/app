@@ -3,6 +3,7 @@ import React from 'react';
 import './Strategy.css';
 import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
+import { Line } from 'react-chartjs-2';
 
 function Strategy({
   accessLevel,
@@ -10,12 +11,48 @@ function Strategy({
   returnLast6MonthsPercent,
   bottomChartLabel
 }) {
+  const strategy = {
+    chartData: {
+      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+      datasets: [
+        {
+          data: [
+            100,
+            105,
+            97,
+            108,
+            110,
+            120,
+            130,
+            115,
+            160,
+            170,
+            140,
+            150,
+            160,
+            170,
+            175,
+            180
+          ],
+          radius: 0,
+          backgroundColor: '#bf88c4',
+          borderColor: '#bf88c4'
+        }
+      ]
+    }
+  };
   return (
     <div className="Strategy">
       <Link to={`/strategies/${4}`}>
         <Paper>
           <div className="under">
-            <canvas />
+            <Line
+              data={strategy.chartData}
+              height={200}
+              options={{
+                maintainAspectRatio: false
+              }}
+            />
           </div>
           <div className="Strategy_over">
             <span className="rmhi">RMHI</span>

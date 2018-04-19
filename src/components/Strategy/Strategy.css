@@ -33,13 +33,13 @@
 }
 
 .Strategy .Strategy_over .free {
-  background: $pink;
+  background: var(--pink);
 }
 .premium {
-  background: $baby-blue;
+  background: var(--baby-blue);
 }
 .expert {
-  background: $dark-green;
+  background: var(--dark-green);
 }
 
 .Strategy .Strategy_over .percent {

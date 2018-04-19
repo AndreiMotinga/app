@@ -55,8 +55,8 @@ function StrategiesShowTable(props) {
         <TableHead>
           <TableRow>
             <TableCell padding="checkbox" />
-            {months.map(m => (
-              <TableCell padding="checkbox" numeric>
+            {months.map((m, i) => (
+              <TableCell key={i} padding="checkbox" numeric>
                 {m}
               </TableCell>
             ))}
