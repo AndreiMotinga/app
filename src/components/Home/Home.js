@@ -13,24 +13,24 @@ function Home(props) {
     <div>
       <div className={classes.root}>
         <Grid container spacing={16}>
-          <Grid item xs={12} lg={5}>
+          <Grid item xs={12} md={5} lg={5}>
             <Typography>Daily Market Update</Typography>
             <Post />
           </Grid>
 
-          <Grid item xs={12} lg={7}>
+          <Grid item xs={12} md={7} lg={7}>
             <Typography>Strategies</Typography>
             <Grid container spacing={8}>
-              <Grid item xs={12} lg={3}>
+              <Grid item xs={12} sm={3} md={6} lg={3}>
                 <Strategy />
               </Grid>
-              <Grid item xs={12} lg={3}>
+              <Grid item xs={12} sm={3} md={6} lg={3}>
                 <Strategy />
               </Grid>
-              <Grid item xs={12} lg={3}>
+              <Grid item xs={12} sm={3} md={6} lg={3}>
                 <Strategy />
               </Grid>
-              <Grid item xs={12} lg={3}>
+              <Grid item xs={12} sm={3} md={6} lg={3}>
                 <Strategy />
               </Grid>
             </Grid>
@@ -72,11 +72,11 @@ Home.propTypes = {
 
 const styles = theme => ({
   root: {
-    // flexGrow: 1,
-    // padding: '15px'
+    paddingTop: '15px',
+    paddingBottom: '15px',
   },
   posts: {
-    marginTop: 20
+    marginTop: 40
   }
 });
 
