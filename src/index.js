@@ -2,11 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import registerServiceWorker from 'config/registerServiceWorker';
+import store from 'config/store';
 
-import App from './components/App';
-import configureStore from './store';
-
-const store = configureStore();
+import App from 'components/App';
+import './index.css';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,16 +13,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-if (module.hot) {
-  module.hot.accept('./components/App', () => {
-    ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      document.getElementById('root')
-    );
-  });
-}
 
 registerServiceWorker();

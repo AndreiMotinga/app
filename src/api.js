@@ -14,7 +14,7 @@ import {
   subscribeSuccess,
   subscribeFailure
 } from './actions';
-import history from './history';
+import history from 'config/history';
 
 /**
  * Main object to handle api requests
@@ -57,9 +57,17 @@ class Api {
    */
   initUser() {
     const url = `${this.baseUrl}/auth/validate_token`;
+    const headers = this.headers();
+
     return dispatch => {
+      // don't validate if saved headers don't have uid in them,
+      // a.k.a isn't signedin
+      if (!headers.uid) {
+        return dispatch(init({}));
+      }
+
       return axios
-        .get(url, { headers: this.headers() })
+        .get(url, { headers })
         .then(res => {
           this.cycleHeaders(res.headers);
           const currentUser = res.data.data;
@@ -158,13 +166,23 @@ class Api {
    * dispatches SUBSCRIPTION.REQUEST
    *   => SUBSCRIPTION.SUCCESS || SUBSCRIPTION.ERROR
    */
-  subscribe(token) {
+  subscribe(token, planId, period) {
     const url = `${this.baseUrl}/subscriptions`;
     const headers = this.headers;
     return dispatch => {
       dispatch(subscribeRequest());
       return axios
-        .post(url, { token }, { headers })
+        .post(
+          url,
+          {
+            token,
+            planId,
+            period
+          },
+          {
+            headers
+          }
+        )
         .then(res => {
           this.cycleHeaders(res.headers);
           // NOTE api response is slightly different format from init()

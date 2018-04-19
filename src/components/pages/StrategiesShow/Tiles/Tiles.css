@@ -1,0 +1,26 @@
+.Tiles {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.Tile {
+  flex: 1 1;
+  padding: 10px;
+  min-width: 140px;
+  border-left: 1px solid var(--white-medium);
+  background: var(--white-lite);
+  text-align: center;
+}
+
+.Tile .Tile:first-child {
+  border-left: none;
+}
+
+.Tile .Tile_num {
+  font-size: 32px;
+}
+
+.Tile .Tile_subline {
+  font-size: 10px;
+}

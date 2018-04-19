@@ -1,0 +1,56 @@
+.Strategy {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  background: white;
+}
+
+.Strategy canvas {
+  min-height: 170px;
+}
+
+.Strategy .Strategy_over {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+}
+
+.Strategy .Strategy_over .rmhi {
+  display: inline-block;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.Strategy .Strategy_over .access {
+  float: right;
+  padding: 2px 5px;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.Strategy .Strategy_over .access.free {
+  background: var(--pink);
+}
+.Strategy .Strategy_over .access.premium {
+  background: var(--baby-blue);
+}
+.Strategy .Strategy_over .access.expert {
+  background: var(--dark-green);
+  color: #fff;
+}
+
+.Strategy .Strategy_over .percent {
+  font-size: 26px;
+  position: absolute;
+  bottom: 50%;
+  left: 20%;
+}
+
+.Strategy .Strategy_over .subline {
+  position: absolute;
+  bottom: 8px;
+  font-size: 10px;
+}

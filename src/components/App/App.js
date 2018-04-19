@@ -1,24 +1,25 @@
 import React from 'react';
-import Nav from 'components/Nav';
 import CssBaseline from 'material-ui/CssBaseline';
-import Footer from 'components/Footer';
-import Home from 'components/Home';
-import PostsShow from 'pages/PostsShow';
-import StrategiesShow from 'pages/StrategiesShow';
-import Faq from 'pages/Faq';
-import Tos from 'pages/Tos';
-import Pp from 'pages/Pp';
-import Auth from 'pages/Auth';
-import Stripe from 'pages/Stripe';
-import UsersEdit from 'pages/UsersEdit';
-import PrivateRoute from 'components/PrivateRoute';
-
 import { Router, Route } from 'react-router-dom';
-import history from '../../history';
 import { connect } from 'react-redux';
-import { initUser } from '../../actions';
-// import Typography from 'material-ui/Typography';
-// import PlansModal from 'components/PlansModal';
+import { initUser } from 'actions';
+import PrivateRoute from 'config/PrivateRoute';
+import history from 'config/history';
+
+import Nav from './Nav';
+import Footer from './Footer';
+
+import AuthDialog from 'components/dialogs/AuthDialog';
+import PlansDialog from 'components/dialogs/PlansDialog';
+
+import Home from 'components/pages/Home';
+import PostsShow from 'components/pages/PostsShow';
+import StrategiesShow from 'components/pages/StrategiesShow';
+import Faq from 'components/pages/Faq';
+import Tos from 'components/pages/Tos';
+import Pp from 'components/pages/Pp';
+import Profile from 'components/pages/Profile';
+import Auth from 'components/pages/Auth';
 
 class App extends React.Component {
   componentDidMount() {
@@ -26,54 +27,48 @@ class App extends React.Component {
   }
 
   render() {
-    const { isLoading, currentUser } = this.props.auth;
-    const isSignedIn = !!currentUser.email;
+    const { isSignedIn } = this.props;
 
     return (
       <div>
-        {isLoading && <span>Loading...</span>}
+        <Router history={history}>
+          <div>
+            <CssBaseline />
+            <Nav />
 
-        {!isLoading && (
-          <Router history={history}>
-            <div>
-              <CssBaseline />
-              <Nav />
-              <div className="App">
-                {/* <PlansModal /> */}
-                <Route exact path="/" component={Home} />
-                <Route path="/auth" component={Auth} />
-                <PrivateRoute
-                  path="/users/edit"
-                  component={UsersEdit}
-                  isSignedIn={isSignedIn}
-                />
+            <main id="content">
+              <Route exact path="/" component={Home} />
+              <Route path="/posts/:id" component={PostsShow} />
+              <Route path="/strategies/:id" component={StrategiesShow} />
+              <Route path="/faq" component={Faq} />
+              <Route path="/tos" component={Tos} />
+              <Route path="/pp" component={Pp} />
+              <Route path="/auth" component={Auth} />
+              <PrivateRoute
+                path="/profile"
+                component={Profile}
+                isSignedIn={isSignedIn}
+              />
+            </main>
 
-                <Route path="/posts/:id" component={PostsShow} />
-                <Route path="/strategies/:id" component={StrategiesShow} />
-
-                <Route path="/faq" component={Faq} />
-                <Route path="/tos" component={Tos} />
-                <Route path="/pp" component={Pp} />
-              </div>
-              <Footer />
-            </div>
-          </Router>
-        )}
+            <Footer />
+            <AuthDialog />
+            <PlansDialog />
+          </div>
+        </Router>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  isSignedIn: Boolean(state.auth.currentUser.email)
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    initUser: () => {
-      dispatch(initUser());
-    }
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  initUser: () => {
+    dispatch(initUser());
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

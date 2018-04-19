@@ -1,0 +1,62 @@
+.Plans {
+  display: flex;
+  flex: 1 1;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 890px;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+@media all and (max-width: 890px) {
+  .Plans {
+    flex-direction: column;
+  }
+}
+
+.Plan {
+  margin: 10px auto;
+  min-width: 265px;
+  font-size: 14px;
+}
+
+.Plan.active {
+  margin-top: 5px;
+}
+
+.Plan .Plan_header {
+  padding: 15px 30px;
+  text-align: center;
+  background: var(--primary);
+  color: white;
+}
+
+.Plan .Plan_name {
+}
+
+.Plan .Plan_body {
+  padding: 30px;
+  text-align: center;
+}
+
+.Plan.active .Plan_body {
+  padding: 35px;
+  text-align: center;
+}
+
+.Plan .Plan_body_price {
+  display: inline-block;
+  font-size: 32px;
+  line-height: 46px;
+}
+
+.Plan .Plan_body_duration {
+  display: inline-block;
+}
+.Plan .Plan_body_feature {
+}
+
+.Plan .Plan_footer {
+  text-align: center;
+  padding: 15px 30px;
+}

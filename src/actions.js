@@ -4,7 +4,9 @@ import {
   Auth,
   SUBSCRIPTION_REQUEST,
   SUBSCRIPTION_SUCCESS,
-  SUBSCRIPTION_FAILURE
+  SUBSCRIPTION_FAILURE,
+  OPEN_DIALOG,
+  CLOSE_DIALOG
 } from './constants';
 
 /**
@@ -108,8 +110,8 @@ export function signoutFailure(errors) {
  * subscriptions flow
  */
 
-export function subscribe(token) {
-  return Api.subscribe(token);
+export function subscribe(token, planId, period) {
+  return Api.subscribe(token, planId, period);
 }
 
 export function subscribeRequest() {
@@ -129,5 +131,22 @@ export function subscribeFailure(errors) {
   return {
     type: SUBSCRIPTION_FAILURE,
     errors
+  };
+}
+
+/**
+ * dialogs flow
+ */
+
+export function openDialog(dialog) {
+  return {
+    type: OPEN_DIALOG,
+    dialog
+  };
+}
+
+export function closeDialog() {
+  return {
+    type: CLOSE_DIALOG
   };
 }

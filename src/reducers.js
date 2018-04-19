@@ -3,11 +3,15 @@ import {
   Auth,
   SUBSCRIPTION_REQUEST,
   SUBSCRIPTION_SUCCESS,
-  SUBSCRIPTION_FAILURE
+  SUBSCRIPTION_FAILURE,
+  OPEN_DIALOG,
+  CLOSE_DIALOG
 } from './constants';
 
+//TODO change auth reducer to root reducer
 const initialAuthState = {
-  isLoading: true,
+  activeDialog: null,
+  isLoading: false,
   errors: [],
   currentUser: {}
 };
@@ -28,7 +32,11 @@ function auth(state = initialAuthState, action) {
       return { ...state, isLoading: true };
 
     case Auth.SIGNUP_SUCCESS:
-      return { ...state, isLoading: false };
+      return {
+        ...state,
+        activeDialog: null,
+        isLoading: false
+      };
 
     case Auth.SIGNUP_FAILURE:
       return {
@@ -46,6 +54,7 @@ function auth(state = initialAuthState, action) {
     case Auth.SIGNIN_SUCCESS:
       return {
         ...state,
+        activeDialog: null,
         isLoading: false,
         currentUser: action.currentUser
       };
@@ -96,6 +105,20 @@ function auth(state = initialAuthState, action) {
         isLoading: false,
         errors: action.errors
       };
+
+    /*
+     * dialog actions
+     */
+
+    case OPEN_DIALOG:
+      return { ...state, activeDialog: action.dialog };
+
+    case CLOSE_DIALOG:
+      return { ...state, activeDialog: null };
+
+    /*
+     * return default
+     */
 
     default:
       return state;
