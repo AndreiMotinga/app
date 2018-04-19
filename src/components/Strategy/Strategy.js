@@ -13,7 +13,7 @@ function Strategy({
 }) {
   const strategy = {
     chartData: {
-      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       datasets: [
         {
           data: [
@@ -44,24 +44,24 @@ function Strategy({
   return (
     <div className="Strategy">
       <Link to={`/strategies/${4}`}>
-        <Paper>
-          <div className="under">
-            <Line
-              data={strategy.chartData}
-              height={200}
-              options={{
-                maintainAspectRatio: false
-              }}
-            />
-          </div>
-          <div className="Strategy_over">
-            <span className="rmhi">RMHI</span>
-            <div className="pull-right access expert">expert</div>
-            <div className="name">Optimized Partners</div>
-            <div className="percent">36.5 %</div>
-            <small className="subline">Annual Returns since Oct 20, 2017</small>
-          </div>
-        </Paper>
+        {/* <Paper> */}
+        <div className="under">
+          <Line
+            data={strategy.chartData}
+            height={200}
+            options={{
+              maintainAspectRatio: false
+            }}
+          />
+        </div>
+        <div className="Strategy_over">
+          {/* <span className="rmhi">RMHI</span> */}
+          <div className="access expert">expert</div>
+          {/* <div className="name">Optimized Partners</div> */}
+          {/* <div className="percent">36.5 %</div> */}
+          {/* <small className="subline">Annual Returns since Oct 20, 2017</small> */}
+        </div>
+        {/* </Paper> */}
       </Link>
     </div>
   );

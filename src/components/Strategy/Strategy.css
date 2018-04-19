@@ -17,7 +17,6 @@
   bottom: 0;
   left: 0;
   padding: 5px;
-  background: $white-lite;
 }
 
 .Strategy .Strategy_over .rmhi {
@@ -27,19 +26,21 @@
 }
 
 .Strategy .Strategy_over .access {
-  padding: 0px 15px;
+  float: right;
+  padding: 2px 5px;
   font-weight: bold;
   font-size: 10px;
 }
 
-.Strategy .Strategy_over .free {
+.Strategy .Strategy_over .access.free {
   background: var(--pink);
 }
-.premium {
+.Strategy .Strategy_over .access.premium {
   background: var(--baby-blue);
 }
-.expert {
+.Strategy .Strategy_over .access.expert {
   background: var(--dark-green);
+  color: #fff;
 }
 
 .Strategy .Strategy_over .percent {
