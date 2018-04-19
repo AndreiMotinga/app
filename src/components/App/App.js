@@ -41,17 +41,19 @@ class App extends React.Component {
               <div className="App">
                 {/* <PlansModal /> */}
                 <Route exact path="/" component={Home} />
-                <Route path="/posts/:id" component={PostsShow} />
-                <Route path="/strategies/:id" component={StrategiesShow} />
-                <Route path="/faq" component={Faq} />
-                <Route path="/tos" component={Tos} />
-                <Route path="/pp" component={Pp} />
                 <Route path="/auth" component={Auth} />
                 <PrivateRoute
                   path="/users/edit"
                   component={UsersEdit}
                   isSignedIn={isSignedIn}
                 />
+
+                <Route path="/posts/:id" component={PostsShow} />
+                <Route path="/strategies/:id" component={StrategiesShow} />
+
+                <Route path="/faq" component={Faq} />
+                <Route path="/tos" component={Tos} />
+                <Route path="/pp" component={Pp} />
               </div>
               <Footer />
             </div>
