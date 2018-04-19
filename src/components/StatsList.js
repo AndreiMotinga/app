@@ -11,7 +11,6 @@ import Paper from 'material-ui/Paper';
 const styles = theme => ({
   root: {
     width: '100%',
-    maxWidth: 360,
     backgroundColor: theme.palette.background.paper
   },
   secondary: {

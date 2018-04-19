@@ -1,5 +1,11 @@
 import React from 'react';
-import Tile from 'components/Tile';
+
+const Tile = () => (
+  <div className="Tile">
+    <div className="Tile_num">117.4 %</div>
+    <div className="Tile_subline">Anual Return (Compaunded)</div>
+  </div>
+);
 
 function Tiles() {
   return (

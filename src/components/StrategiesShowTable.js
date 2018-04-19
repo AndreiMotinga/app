@@ -66,7 +66,12 @@ function StrategiesShowTable(props) {
           {data.map(arr => (
             <TableRow key={arr[0]}>
               {arr.map((n, i) => (
-                <TableCell key={i} padding="checkbox" numeric>
+                <TableCell
+                  key={i}
+                  padding="checkbox"
+                  numeric
+                  style={{ maxWidth: 0 }}
+                >
                   {n}
                 </TableCell>
               ))}
@@ -85,7 +90,8 @@ StrategiesShowTable.propTypes = {
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2,
     overflowX: 'auto'
   }
 });

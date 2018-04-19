@@ -44,15 +44,16 @@ const StrategiesShow = () => {
         <Grid item xs={12} lg={9}>
           <Typography>GEWINN FUTURES AGGRESIV</Typography>
           <Tiles />
-
           <Typography>
             Hypothetical Monthly Returnds (includes system fee and Typical
             Broken commissions and fees)
           </Typography>
           <StrategiesShowTable />
+
           <Line data={strategy.chartData} />
         </Grid>
-        <Grid item xs={12} lg={3}>
+
+        <Grid item xs={12} sm={6} md={3}>
           <BigButton
             action="simulate"
             actionText="SIMULATE THIS"
@@ -63,7 +64,6 @@ const StrategiesShow = () => {
             actionText="SUBSCRIBE"
             subline="Full access for 149.00/month"
           />
-
           <Typography>SUMMARY STATISTICS</Typography>
           <StatsList />
         </Grid>
