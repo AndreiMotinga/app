@@ -9,7 +9,10 @@ import {
   signinFailure,
   signoutRequest,
   signoutFailure,
-  signoutSuccess
+  signoutSuccess,
+  subscribeRequest,
+  subscribeSuccess,
+  subscribeFailure
 } from './actions';
 import history from './history';
 
@@ -145,6 +148,33 @@ class Api {
         .catch(err => {
           const errors = err.response.data.errors.full_messages;
           dispatch(signoutFailure(errors));
+        });
+    };
+  }
+
+  /**
+   * Creates a user subscription
+   * makes POST to `/subscriptions`, which returns current user on success.
+   * dispatches SUBSCRIPTION.REQUEST
+   *   => SUBSCRIPTION.SUCCESS || SUBSCRIPTION.ERROR
+   */
+  subscribe(token) {
+    const url = `${this.baseUrl}/subscriptions`;
+    const headers = this.headers
+    return dispatch => {
+      dispatch(subscribeRequest());
+      return axios
+        .post(url, { token } , { headers })
+        .then(res => {
+          this.cycleHeaders(res.headers);
+          // NOTE api response is slightly different format from init()
+          const currentUser = res.data;
+          dispatch(subscribeSuccess(currentUser));
+          history.push('/');
+        })
+        .catch(err => {
+          const errors = err.response.data.errors;
+          dispatch(subscribeFailure(errors));
         });
     };
   }

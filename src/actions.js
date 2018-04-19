@@ -1,5 +1,11 @@
 import Api from './api';
-import { Auth } from './constants';
+// TODO fix casing
+import {
+  Auth,
+  SUBSCRIPTION_REQUEST,
+  SUBSCRIPTION_SUCCESS,
+  SUBSCRIPTION_FAILURE,
+} from './constants';
 
 /**
  * Initial setup
@@ -94,6 +100,34 @@ export function signoutSuccess() {
 export function signoutFailure(errors) {
   return {
     type: Auth.SIGNOUT_FAILURE,
+    errors
+  };
+}
+
+/**
+ * subscriptions flow
+ */
+
+export function subscribe(token) {
+  return Api.subscribe(token);
+}
+
+export function subscribeRequest() {
+  return {
+    type: SUBSCRIPTION_REQUEST
+  };
+}
+
+export function subscribeSuccess(currentUser) {
+  return {
+    type: SUBSCRIPTION_SUCCESS,
+    currentUser
+  };
+}
+
+export function subscribeFailure(errors) {
+  return {
+    type: SUBSCRIPTION_FAILURE,
     errors
   };
 }

@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux';
-import { Auth } from './constants';
+import { Auth,
+  SUBSCRIPTION_REQUEST,
+  SUBSCRIPTION_SUCCESS,
+  SUBSCRIPTION_FAILURE,
+} from './constants';
 
 const initialAuthState = {
   isLoading: true,
@@ -66,6 +70,26 @@ function auth(state = initialAuthState, action) {
       };
 
     case Auth.SIGNOUT_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errors: action.errors
+      };
+
+    /*
+     * subscription actions
+     */
+    case SUBSCRIPTION_REQUEST:
+      return { ...state, isLoading: true };
+
+    case SUBSCRIPTION_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        currentUser: action.currentUser
+      };
+
+    case SUBSCRIPTION_FAILURE:
       return {
         ...state,
         isLoading: false,

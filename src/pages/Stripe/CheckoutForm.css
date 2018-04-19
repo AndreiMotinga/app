@@ -1,0 +1,11 @@
+#CheckoutForm {
+  max-width: 350px;
+  border: 1px solid gray;
+  margin-bottom: 15px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+#CheckoutFormSubmit {
+  margin-top: 20px;
+}
