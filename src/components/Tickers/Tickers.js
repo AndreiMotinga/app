@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Ticker from 'components/Ticker';
 import './Tickers.css';
+import Hidden from 'material-ui/Hidden';
 
 class Tickers extends Component {
   constructor(props, context) {
@@ -69,7 +70,11 @@ class Tickers extends Component {
     let tickers = this.state.tickers.map(ticker => (
       <Ticker key={ticker.id} ticker={ticker} />
     ));
-    return <div className="Tickers">{tickers}</div>;
+    return (
+      <Hidden smDown>
+        <div className="Tickers">{tickers}</div>
+      </Hidden>
+    );
   }
 }
 

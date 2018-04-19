@@ -14,8 +14,10 @@ class Dropdown extends React.Component {
 
   handleClose = e => {
     this.setState({ anchorEl: null });
-    const dest = e.target.attributes.path.value;
-    history.push(dest);
+    const path = e.target.attributes.path;
+    if (path) {
+      history.push(path.value);
+    }
   };
 
   render() {

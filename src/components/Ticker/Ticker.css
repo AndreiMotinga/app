@@ -1,6 +1,6 @@
 .Ticker {
   display: inline-block;
-  padding: 5px !important;
+  padding: 5px 10px;
   border-left: 1px solid var(--white-medium);
 }
 
@@ -14,11 +14,13 @@
 }
 
 .Ticker_price {
-  font-size: 16px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
 }
 
 .Ticker_status {
-  margin: 0 10px;
+  /* margin: 0 5px; */
   text-align: center;
   font-size: 11px;
 }

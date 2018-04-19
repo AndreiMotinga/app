@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
+import Hidden from 'material-ui/Hidden';
 import CSS from 'config/css_variables';
 
 import logo from './logo.svg';
@@ -51,12 +52,14 @@ class Nav extends React.Component {
             </Link>
             <Tickers />
             <div className={classes.spacer} />
-            <Dropdown name={items.crypto.name} items={items.crypto.links} />
-            <Dropdown
-              name={items.strategies.name}
-              items={items.strategies.links}
-            />
-            <Dropdown name={items.topics.name} items={items.topics.links} />
+            <Hidden xsDown>
+              <Dropdown name={items.crypto.name} items={items.crypto.links} />
+              <Dropdown
+                name={items.strategies.name}
+                items={items.strategies.links}
+              />
+              <Dropdown name={items.topics.name} items={items.topics.links} />
+            </Hidden>
             <AuthDropdown />
           </Toolbar>
         </AppBar>
