@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Stripe from './Stripe';
 
-const UsersEdit = ({ currentUser, isSubscribed }) => {
+const Profile = ({ currentUser, isSubscribed }) => {
   return (
     <div>
       <h2>User page</h2>
@@ -26,4 +26,4 @@ const mapStateToProps = state => ({
   isSubscribed: !!state.auth.currentUser.plan_id // TODO provide a better solution for this
 });
 
-export default connect(mapStateToProps)(UsersEdit);
+export default connect(mapStateToProps)(Profile);

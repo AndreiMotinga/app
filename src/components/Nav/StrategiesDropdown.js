@@ -1,9 +1,8 @@
 import React from 'react';
 import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
-import history from 'configureHistory';
 
-class Dropdown extends React.Component {
+class StrategiesDropdown extends React.Component {
   state = {
     anchorEl: null
   };
@@ -12,25 +11,21 @@ class Dropdown extends React.Component {
     this.setState({ anchorEl: event.currentTarget });
   };
 
-  handleClose = e => {
+  handleClose = () => {
     this.setState({ anchorEl: null });
-    const dest = e.target.attributes.path.value;
-    history.push(dest);
   };
 
   render() {
     const { anchorEl } = this.state;
-    const { items } = this.props;
 
     return (
-      <div>
+      <div className="Nav_right_item">
         <Button
           aria-owns={anchorEl ? 'simple-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
-          color="inherit"
         >
-          {this.props.name}
+          Open Menu
         </Button>
         <Menu
           id="simple-menu"
@@ -38,15 +33,13 @@ class Dropdown extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          {items.map((item, i) => (
-            <MenuItem key={i} onClick={this.handleClose} path={item.path}>
-              {item.text}
-            </MenuItem>
-          ))}
+          <MenuItem onClick={this.handleClose}>Foo</MenuItem>
+          <MenuItem onClick={this.handleClose}>Bar</MenuItem>
+          <MenuItem onClick={this.handleClose}>Baz</MenuItem>
         </Menu>
       </div>
     );
   }
 }
 
-export default Dropdown;
+export default StrategiesDropdown;

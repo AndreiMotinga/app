@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import Button from 'material-ui/Button';
+import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
-import { Link } from 'react-router-dom';
 import { signout } from 'actions';
+import history from 'configureHistory';
 
 class AuthDropdown extends React.Component {
   constructor(props, context) {
@@ -28,6 +28,11 @@ class AuthDropdown extends React.Component {
     this.setState({ anchorEl: null });
   };
 
+  handleProfile = () => {
+    this.setState({ anchorEl: null });
+    history.push('/profile');
+  };
+
   handleSignOut = () => {
     this.props.signout();
   };
@@ -40,7 +45,16 @@ class AuthDropdown extends React.Component {
 
     return (
       <div className="Nav_right_item">
-        {!isSignedIn && <Link to="/auth">Sign in</Link>}
+        {!isSignedIn && (
+          <Button
+            color="inherit"
+            onClick={() => {
+              history.push('/auth');
+            }}
+          >
+            Login
+          </Button>
+        )}
 
         {isSignedIn && (
           <div>
@@ -51,7 +65,6 @@ class AuthDropdown extends React.Component {
               color="inherit"
             >
               <AccountCircle />
-              {currentUser.email}
             </IconButton>
             <Menu
               id="profile"
@@ -67,10 +80,7 @@ class AuthDropdown extends React.Component {
               open={open}
               onClose={this.handleClose}
             >
-              <MenuItem onClick={this.handleClose}>
-                <Link to="users/edit">Profile</Link>
-              </MenuItem>
-              <MenuItem onClick={this.handleClose}>My account</MenuItem>
+              <MenuItem onClick={this.handleProfile}>My Profile</MenuItem>
               <MenuItem onClick={this.handleSignOut}>Sign out</MenuItem>
             </Menu>
           </div>

@@ -4,16 +4,43 @@ import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import CSS from 'config/css_variables';
+
 import logo from './logo.svg';
-import Dropdown from './Dropdown';
-import AuthDropdown from './AuthDropdown';
 import Tickers from 'components/Tickers';
+
+import Dropdown from './Dropdown';
+import StrategiesDropdown from './StrategiesDropdown';
+import TopicsDropdown from './TopicsDropdown';
+import AuthDropdown from './AuthDropdown';
 
 import { Link } from 'react-router-dom';
 
 class Nav extends React.Component {
   render() {
     const { classes } = this.props;
+    const items = {
+      crypto: {
+        name: 'Crypto Basics',
+        links: [
+          { path: '/foo', text: 'Futures Products' },
+          { path: '/foo', text: 'Agriculture Futures' },
+          { path: '/foo', text: 'Food Prices Explained' },
+          { path: '/foo', text: 'Energy Futures' },
+          { path: '/foo', text: 'Gas Prices Explained' },
+          { path: '/foo', text: "Today's Crude Oil Boom" },
+          { path: '/foo', text: 'Financial Futures' },
+          { path: '/foo', text: 'Mortgage Rates Explained' }
+        ]
+      },
+      strategies: {
+        name: 'Strategies',
+        links: [{ path: '/foo', text: 'Futures Products' }]
+      },
+      topics: {
+        name: 'Topics',
+        links: [{ path: '/foo', text: 'Futures Products' }]
+      }
+    };
 
     return (
       <div className={classes.root}>
@@ -24,7 +51,12 @@ class Nav extends React.Component {
             </Link>
             <Tickers />
             <div className={classes.spacer} />
-            <Dropdown />
+            <Dropdown name={items.crypto.name} items={items.crypto.links} />
+            <Dropdown
+              name={items.strategies.name}
+              items={items.strategies.links}
+            />
+            <Dropdown name={items.topics.name} items={items.topics.links} />
             <AuthDropdown />
           </Toolbar>
         </AppBar>

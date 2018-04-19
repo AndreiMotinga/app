@@ -10,11 +10,11 @@ import Tos from 'pages/Tos';
 import Pp from 'pages/Pp';
 import Auth from 'pages/Auth';
 import Stripe from 'pages/Stripe';
-import UsersEdit from 'pages/UsersEdit';
+import Profile from 'pages/Profile';
 import PrivateRoute from 'components/PrivateRoute';
 
 import { Router, Route } from 'react-router-dom';
-import history from '../../history';
+import history from 'configureHistory';
 import { connect } from 'react-redux';
 import { initUser } from '../../actions';
 // import Typography from 'material-ui/Typography';
@@ -43,8 +43,8 @@ class App extends React.Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/auth" component={Auth} />
                 <PrivateRoute
-                  path="/users/edit"
-                  component={UsersEdit}
+                  path="/profile"
+                  component={Profile}
                   isSignedIn={isSignedIn}
                 />
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
-import history from 'configureHistory';
 
 class Dropdown extends React.Component {
   state = {
@@ -14,13 +13,11 @@ class Dropdown extends React.Component {
 
   handleClose = e => {
     this.setState({ anchorEl: null });
-    const dest = e.target.attributes.path.value;
-    history.push(dest);
   };
 
   render() {
     const { anchorEl } = this.state;
-    const { items } = this.props;
+    const items = {};
 
     return (
       <div>
@@ -30,7 +27,7 @@ class Dropdown extends React.Component {
           onClick={this.handleClick}
           color="inherit"
         >
-          {this.props.name}
+          Crypto Basics
         </Button>
         <Menu
           id="simple-menu"
@@ -38,11 +35,20 @@ class Dropdown extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          {items.map((item, i) => (
-            <MenuItem key={i} onClick={this.handleClose} path={item.path}>
-              {item.text}
-            </MenuItem>
-          ))}
+          <MenuItem onClick={this.handleClose} path="boo">
+            Futures Products
+          </MenuItem>
+          <MenuItem onClick={this.handleClose}>Agriculture Futures</MenuItem>
+          <MenuItem onClick={this.handleClose}>Food Prices Explained</MenuItem>
+
+          <MenuItem onClick={this.handleClose}>Energy Futures</MenuItem>
+          <MenuItem onClick={this.handleClose}>Gas Prices Explained</MenuItem>
+          <MenuItem onClick={this.handleClose}>Today's Crude Oil Boom</MenuItem>
+
+          <MenuItem onClick={this.handleClose}>Financial Futures</MenuItem>
+          <MenuItem onClick={this.handleClose}>
+            Mortgage Rates Explained
+          </MenuItem>
         </Menu>
       </div>
     );
