@@ -10,6 +10,7 @@ import Tos from 'pages/Tos';
 import Pp from 'pages/Pp';
 import Auth from 'pages/Auth';
 import Stripe from 'pages/Stripe';
+import UsersEdit from 'pages/UsersEdit';
 
 import { Router, Route } from 'react-router-dom';
 import history from '../../history';
@@ -45,6 +46,7 @@ class App extends React.Component {
                 <Route path="/pp" component={Pp} />
                 <Route path="/auth" component={Auth} />
                 <Route path="/stripe" component={Stripe} />
+                <Route path="/users/edit" component={UsersEdit} />
               </div>
               <Footer />
             </div>

@@ -67,7 +67,9 @@ class AuthDropdown extends React.Component {
               open={open}
               onClose={this.handleClose}
             >
-              <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+              <MenuItem onClick={this.handleClose}>
+                <Link to="users/edit">Profile</Link>
+              </MenuItem>
               <MenuItem onClick={this.handleClose}>My account</MenuItem>
               <MenuItem onClick={this.handleSignOut}>Sign out</MenuItem>
             </Menu>
