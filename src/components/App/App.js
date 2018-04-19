@@ -11,6 +11,7 @@ import Pp from 'pages/Pp';
 import Auth from 'pages/Auth';
 import Stripe from 'pages/Stripe';
 import UsersEdit from 'pages/UsersEdit';
+import PrivateRoute from 'components/PrivateRoute';
 
 import { Router, Route } from 'react-router-dom';
 import history from '../../history';
@@ -25,7 +26,8 @@ class App extends React.Component {
   }
 
   render() {
-    const { isLoading } = this.props.auth;
+    const { isLoading, currentUser } = this.props.auth;
+    const isSignedIn = !!currentUser.email;
 
     return (
       <div>
@@ -45,8 +47,11 @@ class App extends React.Component {
                 <Route path="/tos" component={Tos} />
                 <Route path="/pp" component={Pp} />
                 <Route path="/auth" component={Auth} />
-                <Route path="/stripe" component={Stripe} />
-                <Route path="/users/edit" component={UsersEdit} />
+                <PrivateRoute
+                  path="/users/edit"
+                  component={UsersEdit}
+                  isSignedIn={isSignedIn}
+                />
               </div>
               <Footer />
             </div>
