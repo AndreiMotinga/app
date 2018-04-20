@@ -1,14 +1,15 @@
 import React from 'react';
 import Button from 'material-ui/Button';
+import { withStyles } from 'material-ui/styles';
 import Dialog, {
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle
 } from 'material-ui/Dialog';
-import FullWidthTabs from './FullWidthTabs';
+import VerticalLinearStepper from 'components/VerticalLinearStepper';
 
-class AlertDialog extends React.Component {
+class PlansDialog extends React.Component {
   state = {
     open: true
   };
@@ -22,17 +23,21 @@ class AlertDialog extends React.Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
       <div>
         <Button onClick={this.handleClickOpen}>Open alert dialog</Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
+          fullWidth={true}
+          maxWidth={'md'}
         >
+          <DialogTitle id="dialog-title">
+            {'Select Subscription Plan'}
+          </DialogTitle>
           <DialogContent>
-            <FullWidthTabs />
+            <VerticalLinearStepper />
           </DialogContent>
         </Dialog>
       </div>
@@ -40,4 +45,10 @@ class AlertDialog extends React.Component {
   }
 }
 
-export default AlertDialog;
+const styles = () => ({
+  root: {
+    maxWidth: '60%'
+  }
+});
+
+export default withStyles(styles)(PlansDialog);
