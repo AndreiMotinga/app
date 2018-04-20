@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
-import AuthForms from './AuthForms';
 import Dialog, { DialogActions } from 'material-ui/Dialog';
+import TextField from 'material-ui/TextField';
+import Button from 'material-ui/Button';
+import AuthTabs from './AuthTabs';
 
 const FormDialog = ({ isOpen, handleClose }) => {
   return (
@@ -12,7 +12,7 @@ const FormDialog = ({ isOpen, handleClose }) => {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <AuthForms />
+        <AuthTabs />
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
