@@ -33,13 +33,8 @@ class SigninForm extends React.Component {
         {isLoading && <span>loading...</span>}
         {!isLoading && (
           <div>
-            <form
-              id="signup"
-              onSubmit={this.handleSubmit}
-              className={classes.container}
-            >
+            <form onSubmit={this.handleSubmit} className={classes.container}>
               <TextField
-                id="email"
                 name="email"
                 label="Email"
                 placeholder="Email"
@@ -50,10 +45,8 @@ class SigninForm extends React.Component {
                 autoFocus
                 margin="normal"
               />
-              <br />
 
               <TextField
-                id="password"
                 name="password"
                 type="password"
                 label="Password"
@@ -65,15 +58,13 @@ class SigninForm extends React.Component {
                 margin="normal"
               />
 
-              <br />
-              <br />
               <Button
                 type="submit"
                 variant="raised"
                 color="primary"
                 className={classes.button}
               >
-                Submit
+                SIGN IN
               </Button>
             </form>
           </div>
@@ -102,7 +93,7 @@ const styles = {
   },
   button: {
     display: 'block',
-    margin: '0 auto'
+    margin: '30px auto 0'
   }
 };
 

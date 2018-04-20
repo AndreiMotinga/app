@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signup } from 'actions';
+import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 
 import TextField from 'material-ui/TextField';
@@ -14,16 +15,13 @@ class SignupForm extends React.Component {
       password_confirmation: '',
       pass_error: false
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     const { email, password, password_confirmation } = this.state;
     if (password !== password_confirmation) {
@@ -32,10 +30,11 @@ class SignupForm extends React.Component {
     }
 
     this.props.handleSignup(email, password);
-  }
+  };
 
   render() {
     const { isLoading, errors } = this.props.auth;
+    const { classes } = this.props;
     const err_messages = errors.map(err => <li>{err}</li>);
 
     return (
@@ -46,47 +45,58 @@ class SignupForm extends React.Component {
 
         {!isLoading && (
           <div>
-            <h1>signup</h1>
-            <form id="signup" onSubmit={this.handleSubmit}>
-              <label>
-                Email:{' '}
-                <input
-                  type="email"
-                  name="email"
-                  onChange={this.handleChange}
-                  value={this.state.email}
-                  required
-                />
-              </label>
-              <br />
-              <label>
-                Password:{' '}
-                <input
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  required
-                />
-              </label>
-              <br />
-              <label>
-                Password confirmation:{' '}
-                <input
-                  type="password"
-                  name="password_confirmation"
-                  value={this.state.password_confirmation}
-                  onChange={this.handleChange}
-                  required
-                />
-              </label>
+            <form onSubmit={this.handleSubmit} className={classes.container}>
+              <TextField
+                name="email"
+                label="Email"
+                placeholder="Email"
+                onChange={this.handleChange}
+                value={this.state.email}
+                required
+                fullWidth
+                autoFocus
+                margin="normal"
+              />
+
+              <TextField
+                name="password"
+                type="password"
+                label="Password"
+                placeholder="Password"
+                onChange={this.handleChange}
+                value={this.state.password}
+                required
+                fullWidth
+                margin="normal"
+              />
+
+              <TextField
+                id="password_confirmation"
+                name="password_confirmation"
+                type="password_confirmation"
+                label="Password Confirmation"
+                placeholder="Password Confirmation"
+                onChange={this.handleChange}
+                value={this.state.password_confirmation}
+                required
+                fullWidth
+                margin="normal"
+              />
+
               {this.state.pass_error && (
                 <span id="password-confirmation-error">
                   Password confirmation doesn't match Password
                 </span>
               )}
-              <br />
-              <input type="submit" value="Submit" />
+
+              <Button
+                type="submit"
+                variant="raised"
+                color="primary"
+                className={classes.button}
+              >
+                SIGN UP
+              </Button>
             </form>
           </div>
         )}
@@ -105,4 +115,17 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
+const styles = {
+  container: {
+    maxWidth: '250px',
+    margin: '0 auto'
+  },
+  button: {
+    display: 'block',
+    margin: '30px auto 0'
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withStyles(styles)(SignupForm)
+);

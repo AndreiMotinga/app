@@ -25,7 +25,7 @@ TabContainer.propTypes = {
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 500
+    maxWidth: 500
   }
 });
 
@@ -62,7 +62,7 @@ class FullWidthTabs extends React.Component {
         <SwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={this.state.value}
-          onChangeIndex={this.handleChangeIndex}
+          onChangeIndex={() => this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}>
             <SigninForm />
