@@ -5,7 +5,7 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
 import { signout } from 'actions';
-import history from 'configureHistory';
+import history from 'config/history';
 import Auth from 'components/Auth';
 
 class AuthDropdown extends React.Component {

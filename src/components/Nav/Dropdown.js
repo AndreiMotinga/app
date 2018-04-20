@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
-import history from 'configureHistory';
+import history from 'config/history';
 
 class Dropdown extends React.Component {
   state = {

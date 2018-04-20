@@ -14,7 +14,7 @@ import {
   subscribeSuccess,
   subscribeFailure
 } from './actions';
-import history from 'configureHistory';
+import history from 'config/history';
 
 /**
  * Main object to handle api requests
