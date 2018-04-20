@@ -4,7 +4,7 @@ import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
-import { signout } from 'actions';
+import { signout, openDialog, closeDialog } from 'actions';
 import history from 'config/history';
 import AuthDialog from 'components/dialogs/AuthDialog';
 
@@ -13,8 +13,7 @@ class AuthDropdown extends React.Component {
     super(props, context);
 
     this.state = {
-      anchorEl: null,
-      isAuthDialogOpen: false
+      anchorEl: null
     };
   }
 
@@ -23,7 +22,7 @@ class AuthDropdown extends React.Component {
   };
 
   handleClickOpen = () => {
-    this.setState({ isAuthDialogOpen: true });
+    this.props.openAuthDialog();
   };
 
   handleClick = event => {
@@ -43,10 +42,6 @@ class AuthDropdown extends React.Component {
     this.props.signout();
   };
 
-  handleClickOpen = () => {
-    this.setState({ isAuthDialogOpen: true });
-  };
-
   handleCloseDialog = () => {
     this.setState({ isAuthDialogOpen: false });
   };
@@ -56,6 +51,7 @@ class AuthDropdown extends React.Component {
     const open = Boolean(anchorEl);
     const { currentUser } = this.props.auth;
     const isSignedIn = !!currentUser.email;
+    const isAuthDialogOpen = this.props.isAuthDialogOpen;
 
     return (
       <div className="Nav_right_item">
@@ -96,8 +92,8 @@ class AuthDropdown extends React.Component {
         )}
 
         <AuthDialog
-          isOpen={this.state.isAuthDialogOpen}
-          handleClose={this.handleCloseDialog}
+          isOpen={isAuthDialogOpen}
+          handleClose={this.props.closeDialog}
         />
       </div>
     );
@@ -105,15 +101,20 @@ class AuthDropdown extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  isAuthDialogOpen: state.auth.activeDialog === 'AuthDialog'
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    signout: () => {
-      dispatch(signout());
-    }
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  signout: () => {
+    dispatch(signout());
+  },
+  openAuthDialog: () => {
+    dispatch(openDialog('AuthDialog'));
+  },
+  closeDialog: () => {
+    dispatch(closeDialog());
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthDropdown);

@@ -3,10 +3,14 @@ import {
   Auth,
   SUBSCRIPTION_REQUEST,
   SUBSCRIPTION_SUCCESS,
-  SUBSCRIPTION_FAILURE
+  SUBSCRIPTION_FAILURE,
+  OPEN_DIALOG,
+  CLOSE_DIALOG
 } from './constants';
 
+//TODO change auth reducer to root reducer
 const initialAuthState = {
+  activeDialog: null,
   isLoading: true,
   errors: [],
   currentUser: {}
@@ -96,6 +100,20 @@ function auth(state = initialAuthState, action) {
         isLoading: false,
         errors: action.errors
       };
+
+    /*
+     * dialog actions
+     */
+
+    case OPEN_DIALOG:
+      return { ...state, activeDialog: action.dialog };
+
+    case CLOSE_DIALOG:
+      return { ...state, activeDialog: null };
+
+    /*
+     * return default
+     */
 
     default:
       return state;
