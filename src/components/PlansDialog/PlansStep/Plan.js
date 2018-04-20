@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
-import './Plans.css';
 
 const Plan = ({ select }) => (
   <div className="Plan">
@@ -26,12 +25,4 @@ const Plan = ({ select }) => (
   </div>
 );
 
-const Plans = () => (
-  <div className="Plans">
-    <Plan />
-    <Plan />
-    <Plan />
-  </div>
-);
-
-export default Plans;
+export default Plan;

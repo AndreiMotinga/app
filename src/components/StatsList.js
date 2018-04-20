@@ -8,16 +8,6 @@ import List, {
 } from 'material-ui/List';
 import Paper from 'material-ui/Paper';
 
-const styles = theme => ({
-  root: {
-    width: '100%',
-    backgroundColor: theme.palette.background.paper
-  },
-  secondary: {
-    paddingRight: 10
-  }
-});
-
 class StatsList extends React.Component {
   state = {
     summaryStats: {
@@ -174,5 +164,15 @@ class StatsList extends React.Component {
 StatsList.propTypes = {
   classes: PropTypes.object.isRequired
 };
+
+const styles = theme => ({
+  root: {
+    width: '100%',
+    backgroundColor: theme.palette.background.paper
+  },
+  secondary: {
+    paddingRight: 10
+  }
+});
 
 export default withStyles(styles)(StatsList);

@@ -8,7 +8,6 @@ import StrategiesShow from 'pages/StrategiesShow';
 import Faq from 'pages/Faq';
 import Tos from 'pages/Tos';
 import Pp from 'pages/Pp';
-import Stripe from 'components/Stripe';
 import Profile from 'pages/Profile';
 import PrivateRoute from 'components/PrivateRoute';
 
@@ -16,8 +15,6 @@ import { Router, Route } from 'react-router-dom';
 import history from 'config/history';
 import { connect } from 'react-redux';
 import { initUser } from '../../actions';
-// import Typography from 'material-ui/Typography';
-// import PlansModal from 'components/PlansModal';
 
 class App extends React.Component {
   componentDidMount() {
@@ -38,7 +35,6 @@ class App extends React.Component {
               <CssBaseline />
               <Nav />
               <div className="App">
-                {/* <PlansModal /> */}
                 <Route exact path="/" component={Home} />
                 <PrivateRoute
                   path="/profile"

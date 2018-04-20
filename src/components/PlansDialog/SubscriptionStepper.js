@@ -5,23 +5,9 @@ import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 
-import Plans from 'components/Plans';
-import BillingPeriodSelect from 'components/BillingPeriodSelect';
-import Stripe from 'components/Stripe';
-
-const styles = theme => ({
-  root: {
-    width: '90%',
-    margin: '0 auto'
-  },
-  button: {
-    marginRight: theme.spacing.unit
-  },
-  instructions: {
-    marginTop: theme.spacing.unit,
-    marginBottom: theme.spacing.unit
-  }
-});
+import PlansStep from './PlansStep';
+import PeriodStep from './PeriodStep';
+import StripeStep from './StripeStep';
 
 function getSteps() {
   return [
@@ -34,11 +20,11 @@ function getSteps() {
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Plans />;
+      return <PlansStep />;
     case 1:
-      return <BillingPeriodSelect />;
+      return <PeriodStep />;
     case 2:
-      return <Stripe />;
+      return <StripeStep />;
     default:
       return 'Unknown step';
   }
@@ -129,5 +115,19 @@ class SubscriptionStepper extends React.Component {
     );
   }
 }
+
+const styles = theme => ({
+  root: {
+    width: '90%',
+    margin: '0 auto'
+  },
+  button: {
+    marginRight: theme.spacing.unit
+  },
+  instructions: {
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit
+  }
+});
 
 export default withStyles(styles)(SubscriptionStepper);

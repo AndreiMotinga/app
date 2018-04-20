@@ -7,7 +7,8 @@ import Dialog, {
   DialogContentText,
   DialogTitle
 } from 'material-ui/Dialog';
-import SubscriptionStepper from 'components/SubscriptionStepper';
+
+import SubscriptionStepper from './SubscriptionStepper';
 
 class PlansDialog extends React.Component {
   state = {
