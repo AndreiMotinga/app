@@ -73,7 +73,7 @@ class SignupForm extends React.Component {
               <TextField
                 id="password_confirmation"
                 name="password_confirmation"
-                type="password_confirmation"
+                type="password"
                 label="Password Confirmation"
                 placeholder="Password Confirmation"
                 onChange={this.handleChange}
