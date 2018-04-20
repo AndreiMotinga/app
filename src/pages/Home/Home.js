@@ -73,7 +73,7 @@ Home.propTypes = {
 const styles = theme => ({
   root: {
     paddingTop: '15px',
-    paddingBottom: '15px',
+    paddingBottom: '15px'
   },
   posts: {
     marginTop: 40

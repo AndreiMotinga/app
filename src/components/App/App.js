@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from 'components/Nav';
 import CssBaseline from 'material-ui/CssBaseline';
 import Footer from 'components/Footer';
-import Home from 'components/Home';
+import Home from 'pages/Home';
 import PostsShow from 'pages/PostsShow';
 import StrategiesShow from 'pages/StrategiesShow';
 import Faq from 'pages/Faq';
