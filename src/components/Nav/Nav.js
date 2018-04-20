@@ -10,8 +10,6 @@ import logo from './logo.svg';
 import Tickers from 'components/Tickers';
 
 import Dropdown from './Dropdown';
-import StrategiesDropdown from './StrategiesDropdown';
-import TopicsDropdown from './TopicsDropdown';
 import AuthDropdown from './AuthDropdown';
 
 import { Link } from 'react-router-dom';
