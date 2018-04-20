@@ -6,18 +6,24 @@ import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
 import { signout } from 'actions';
 import history from 'configureHistory';
+import Auth from 'components/Auth';
 
 class AuthDropdown extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      anchorEl: null
+      anchorEl: null,
+      isAuthDialogOpen: false
     };
   }
 
   handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleClickOpen = () => {
+    this.setState({ isAuthDialogOpen: true });
   };
 
   handleClick = event => {
@@ -37,6 +43,14 @@ class AuthDropdown extends React.Component {
     this.props.signout();
   };
 
+  handleClickOpen = () => {
+    this.setState({ isAuthDialogOpen: true });
+  };
+
+  handleCloseDialog = () => {
+    this.setState({ isAuthDialogOpen: false });
+  };
+
   render() {
     const anchorEl = this.state.anchorEl;
     const open = Boolean(anchorEl);
@@ -46,12 +60,7 @@ class AuthDropdown extends React.Component {
     return (
       <div className="Nav_right_item">
         {!isSignedIn && (
-          <Button
-            color="inherit"
-            onClick={() => {
-              history.push('/auth');
-            }}
-          >
+          <Button color="inherit" onClick={this.handleClickOpen}>
             Login
           </Button>
         )}
@@ -85,6 +94,11 @@ class AuthDropdown extends React.Component {
             </Menu>
           </div>
         )}
+
+        <Auth
+          isOpen={this.state.isAuthDialogOpen}
+          handleClose={this.handleCloseDialog}
+        />
       </div>
     );
   }

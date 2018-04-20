@@ -8,7 +8,6 @@ import StrategiesShow from 'pages/StrategiesShow';
 import Faq from 'pages/Faq';
 import Tos from 'pages/Tos';
 import Pp from 'pages/Pp';
-import Auth from 'pages/Auth';
 import Stripe from 'pages/Stripe';
 import Profile from 'pages/Profile';
 import PrivateRoute from 'components/PrivateRoute';
@@ -41,7 +40,6 @@ class App extends React.Component {
               <div className="App">
                 {/* <PlansModal /> */}
                 <Route exact path="/" component={Home} />
-                <Route path="/auth" component={Auth} />
                 <PrivateRoute
                   path="/profile"
                   component={Profile}
