@@ -1,9 +1,10 @@
 import React from 'react';
 import CssBaseline from 'material-ui/CssBaseline';
-import { Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { initUser } from 'actions';
 import PrivateRoute from 'config/PrivateRoute';
+import history from 'config/history';
 import './App.css';
 
 import Nav from './Nav';
@@ -16,18 +17,6 @@ import Faq from 'components/pages/Faq';
 import Tos from 'components/pages/Tos';
 import Pp from 'components/pages/Pp';
 import Profile from 'components/pages/Profile';
-
-const Routes = ({ isSignedIn }) => (
-  <div>
-    <Route exact path="/" component={Home} />
-    <Route path="/posts/:id" component={PostsShow} />
-    <Route path="/strategies/:id" component={StrategiesShow} />
-    <Route path="/faq" component={Faq} />
-    <Route path="/tos" component={Tos} />
-    <Route path="/pp" component={Pp} />
-    <PrivateRoute path="/profile" component={Profile} isSignedIn={isSignedIn} />
-  </div>
-);
 
 class App extends React.Component {
   componentDidMount() {
@@ -43,14 +32,27 @@ class App extends React.Component {
         {isLoading && <span>Loading...</span>}
 
         {!isLoading && (
-          <div>
-            <CssBaseline />
-            <Nav />
+          <Router history={history}>
             <div className="App">
-              <Routes isSignedIn={isSignedIn} />
+              <CssBaseline />
+              <Nav />
+
+              <div className="App-content">
+                <Route exact path="/" component={Home} />
+                <Route path="/posts/:id" component={PostsShow} />
+                <Route path="/strategies/:id" component={StrategiesShow} />
+                <Route path="/faq" component={Faq} />
+                <Route path="/tos" component={Tos} />
+                <Route path="/pp" component={Pp} />
+                <PrivateRoute
+                  path="/profile"
+                  component={Profile}
+                  isSignedIn={isSignedIn}
+                />
+                <Footer />
+              </div>
             </div>
-            <Footer />
-          </div>
+          </Router>
         )}
       </div>
     );

@@ -1,10 +1,10 @@
-.App {
-  padding: 15px;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+}
+
+.App-content {
+  padding: 15px;
 }
 
 @keyframes App-logo-spin {
