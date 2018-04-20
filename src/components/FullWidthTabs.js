@@ -5,7 +5,6 @@ import SwipeableViews from 'react-swipeable-views';
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
 
 const styles = theme => ({
   root: {

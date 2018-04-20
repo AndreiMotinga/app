@@ -14,7 +14,7 @@ class AuthDropdown extends React.Component {
 
     this.state = {
       anchorEl: null,
-      isAuthDialogOpen: false
+      isAuthDialogOpen: true
     };
   }
 
