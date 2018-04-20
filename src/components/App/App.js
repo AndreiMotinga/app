@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { initUser } from 'actions';
 import PrivateRoute from 'config/PrivateRoute';
 import history from 'config/history';
-import './App.css';
 
 import Nav from './Nav';
 import Footer from './Footer';
@@ -33,11 +32,11 @@ class App extends React.Component {
 
         {!isLoading && (
           <Router history={history}>
-            <div className="App">
+            <div>
               <CssBaseline />
               <Nav />
 
-              <div className="App-content">
+              <main id="content">
                 <Route exact path="/" component={Home} />
                 <Route path="/posts/:id" component={PostsShow} />
                 <Route path="/strategies/:id" component={StrategiesShow} />
@@ -50,7 +49,7 @@ class App extends React.Component {
                   isSignedIn={isSignedIn}
                 />
                 <Footer />
-              </div>
+              </main>
             </div>
           </Router>
         )}

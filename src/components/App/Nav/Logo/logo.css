@@ -3,10 +3,6 @@
   height: 80px;
 }
 
-.App-content {
-  padding: 15px;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

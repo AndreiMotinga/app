@@ -6,7 +6,7 @@ import Toolbar from 'material-ui/Toolbar';
 import Hidden from 'material-ui/Hidden';
 import CSS from 'config/CssVariables';
 
-import logo from './logo.svg';
+import Logo from './Logo';
 import Tickers from './Tickers';
 
 import Dropdown from './Dropdown';
@@ -46,7 +46,7 @@ class Nav extends React.Component {
         <AppBar position="static">
           <Toolbar>
             <Link to="/">
-              <img src={logo} className="App-logo" alt="logo" />
+              <Logo />
             </Link>
             <Tickers />
             <div className={classes.spacer} />
