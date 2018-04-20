@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { initUser } from 'actions';
 import PrivateRoute from 'config/PrivateRoute';
+import './App.css';
 
 import Nav from './Nav';
 import Footer from './Footer';

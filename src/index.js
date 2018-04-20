@@ -7,6 +7,7 @@ import store from 'config/store';
 import history from 'config/history';
 
 import App from 'components/App';
+import './index.css';
 
 ReactDOM.render(
   <Provider store={store}>

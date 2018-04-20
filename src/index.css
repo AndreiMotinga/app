@@ -1,7 +1,7 @@
 /*
  * Define a variable at the top level of the cascade
  * Make sure these variables are present in css_vairables.js as well
- * in order to be able to use them in MUI styles
+ * in order to be able to use them in material-ui styls
 */
 :root {
   --white-medium: rgba(255, 255, 255, 0.5);
@@ -25,18 +25,4 @@
   --base-duration: 150ms;
   --base-timing: ease;
   --font: Arial;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-/* Typography */
-.SectionTitle {
-  color: var(--white);
-  font-size: 13px;
-  line-height: 35px;
-  letter-spacing: 1px;
 }

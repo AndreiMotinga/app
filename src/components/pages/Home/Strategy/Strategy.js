@@ -1,8 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import './Strategy.css';
 import { Link } from 'react-router-dom';
-import Paper from 'material-ui/Paper';
 import { Line } from 'react-chartjs-2';
 
 function Strategy({
