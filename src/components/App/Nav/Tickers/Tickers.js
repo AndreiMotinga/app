@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Ticker from 'components/Ticker';
+import Ticker from './Ticker';
 import './Tickers.css';
 import Hidden from 'material-ui/Hidden';
 

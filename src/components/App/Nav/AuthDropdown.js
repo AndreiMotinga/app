@@ -6,7 +6,7 @@ import IconButton from 'material-ui/IconButton';
 import AccountCircle from 'material-ui-icons/AccountCircle';
 import { signout } from 'actions';
 import history from 'config/history';
-import Auth from 'components/Auth';
+import AuthDialog from 'components/dialogs/AuthDialog';
 
 class AuthDropdown extends React.Component {
   constructor(props, context) {
@@ -95,7 +95,7 @@ class AuthDropdown extends React.Component {
           </div>
         )}
 
-        <Auth
+        <AuthDialog
           isOpen={this.state.isAuthDialogOpen}
           handleClose={this.handleCloseDialog}
         />

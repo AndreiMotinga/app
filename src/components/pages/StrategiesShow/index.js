@@ -1,11 +1,12 @@
 import React from 'react';
-import StatsList from 'components/StatsList';
-import Tiles from 'components/Tiles';
 import Typography from 'material-ui/Typography';
-import StrategiesShowTable from 'components/StrategiesShowTable';
 import Grid from 'material-ui/Grid';
-import BigButton from 'components/BigButton';
 import { Line } from 'react-chartjs-2';
+
+import StatsList from './StatsList';
+import StrategiesTable from './StrategiesTable';
+import BigButton from './BigButton';
+import Tiles from './Tiles';
 
 const StrategiesShow = () => {
   const strategy = {
@@ -48,7 +49,7 @@ const StrategiesShow = () => {
             Hypothetical Monthly Returnds (includes system fee and Typical
             Broken commissions and fees)
           </Typography>
-          <StrategiesShowTable />
+          <StrategiesTable />
 
           <Line data={strategy.chartData} />
         </Grid>

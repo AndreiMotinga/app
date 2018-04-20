@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PlansDialog from 'components/PlansDialog';
+import PlansDialog from 'components/dialogs/PlansDialog';
 
 const Profile = ({ currentUser, isSubscribed }) => {
   return (

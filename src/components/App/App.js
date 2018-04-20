@@ -8,13 +8,13 @@ import PrivateRoute from 'config/PrivateRoute';
 import Nav from './Nav';
 import Footer from './Footer';
 
-import Home from 'pages/Home';
-import PostsShow from 'pages/PostsShow';
-import StrategiesShow from 'pages/StrategiesShow';
-import Faq from 'pages/Faq';
-import Tos from 'pages/Tos';
-import Pp from 'pages/Pp';
-import Profile from 'pages/Profile';
+import Home from 'components/pages/Home';
+import PostsShow from 'components/pages/PostsShow';
+import StrategiesShow from 'components/pages/StrategiesShow';
+import Faq from 'components/pages/Faq';
+import Tos from 'components/pages/Tos';
+import Pp from 'components/pages/Pp';
+import Profile from 'components/pages/Profile';
 
 const Routes = ({ isSignedIn }) => (
   <div>

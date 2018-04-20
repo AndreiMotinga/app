@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Post from 'components/Post';
-import Strategy from 'components/Strategy';
-import Patterns from 'components/Patterns';
+import Strategy from './Strategy';
+import Patterns from './Patterns';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';

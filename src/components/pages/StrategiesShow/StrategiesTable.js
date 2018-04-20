@@ -1,24 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Table, {
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow
+} from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 
-const styles = theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 3,
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 700,
-  },
-});
-
-
 const data = [
-  ['2015', 'null', 'null', 'null', 'null', 'null', 'null', 0, 3, 10, 4.3, -5.6, 9, 9],
+  [
+    '2015',
+    'null',
+    'null',
+    'null',
+    'null',
+    'null',
+    'null',
+    0,
+    3,
+    10,
+    4.3,
+    -5.6,
+    9,
+    9
+  ],
   ['2016', 0, 0, 0, 0, 1.7, -0.5, 2, 3, 10, 4.3, -5.6, 9, 9],
   ['2017', 0, 0, 0, 4, 1.7, -0.5, 2, 3, 10, 4.3, -5.6, 9, 9],
   ['2018', -4.5, -2.1, 1.0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -40,8 +47,7 @@ const months = [
   'YTD'
 ];
 
-
-function SimpleTable(props) {
+function StrategiesTable(props) {
   const { classes } = props;
 
   return (
@@ -78,8 +84,20 @@ function SimpleTable(props) {
   );
 }
 
-SimpleTable.propTypes = {
-  classes: PropTypes.object.isRequired,
+StrategiesTable.propTypes = {
+  classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SimpleTable);
+const styles = theme => ({
+  root: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 3,
+    overflowX: 'auto'
+  },
+  table: {
+    minWidth: 700
+  }
+});
+
+export default withStyles(styles)(StrategiesTable);
