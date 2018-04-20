@@ -7,7 +7,7 @@ import Dialog, {
   DialogContentText,
   DialogTitle
 } from 'material-ui/Dialog';
-import VerticalLinearStepper from 'components/VerticalLinearStepper';
+import SubscriptionStepper from 'components/SubscriptionStepper';
 
 class PlansDialog extends React.Component {
   state = {
@@ -37,7 +37,7 @@ class PlansDialog extends React.Component {
             {'Select Subscription Plan'}
           </DialogTitle>
           <DialogContent>
-            <VerticalLinearStepper />
+            <SubscriptionStepper />
           </DialogContent>
         </Dialog>
       </div>

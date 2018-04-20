@@ -8,7 +8,7 @@ import StrategiesShow from 'pages/StrategiesShow';
 import Faq from 'pages/Faq';
 import Tos from 'pages/Tos';
 import Pp from 'pages/Pp';
-import Stripe from 'pages/Stripe';
+import Stripe from 'components/Stripe';
 import Profile from 'pages/Profile';
 import PrivateRoute from 'components/PrivateRoute';
 

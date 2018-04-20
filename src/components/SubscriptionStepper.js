@@ -24,7 +24,11 @@ const styles = theme => ({
 });
 
 function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+  return [
+    'Select Subscription Plan',
+    'Select billing period',
+    'Provide card details'
+  ];
 }
 
 function getStepContent(step) {
@@ -40,23 +44,14 @@ function getStepContent(step) {
   }
 }
 
-class HorizontalLinearStepper extends React.Component {
+class SubscriptionStepper extends React.Component {
   static propTypes = {
     classes: PropTypes.object
   };
 
   state = {
-    activeStep: 0,
-    skipped: new Set()
+    activeStep: 0
   };
-
-  isStepOptional = step => {
-    return step === 1;
-  };
-
-  isStepSkipped(step) {
-    return this.state.skipped.has(step);
-  }
 
   handleNext = () => {
     this.setState({
@@ -88,14 +83,6 @@ class HorizontalLinearStepper extends React.Component {
           {steps.map((label, index) => {
             const props = {};
             const labelProps = {};
-            if (this.isStepOptional(index)) {
-              labelProps.optional = (
-                <Typography variant="caption">Optional</Typography>
-              );
-            }
-            if (this.isStepSkipped(index)) {
-              props.completed = false;
-            }
             return (
               <Step key={label} {...props}>
                 <StepLabel {...labelProps}>{label}</StepLabel>
@@ -143,4 +130,4 @@ class HorizontalLinearStepper extends React.Component {
   }
 }
 
-export default withStyles(styles)(HorizontalLinearStepper);
+export default withStyles(styles)(SubscriptionStepper);

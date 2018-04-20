@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Stripe from './Stripe';
+import Stripe from 'components/Stripe';
 import PlansDialog from 'components/PlansDialog';
 
 const Profile = ({ currentUser, isSubscribed }) => {

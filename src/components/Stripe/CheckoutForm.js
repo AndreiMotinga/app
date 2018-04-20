@@ -2,6 +2,7 @@ import React from 'react';
 import { injectStripe, CardElement } from 'react-stripe-elements';
 import { connect } from 'react-redux';
 import { subscribe } from 'actions';
+import Button from 'material-ui/Button';
 
 class CheckoutForm extends React.Component {
   handleSubmit = ev => {
@@ -15,10 +16,9 @@ class CheckoutForm extends React.Component {
     return (
       <form id="CheckoutForm" onSubmit={this.handleSubmit}>
         <label>
-          Card details
           <CardElement style={{ base: { fontSize: '18px' } }} />
         </label>
-        <button id="CheckoutFormSubmit">Confirm order</button>
+        <Button type="submit">Confirm order</Button>
       </form>
     );
   }
