@@ -1,7 +1,13 @@
 import React from 'react';
-import Nav from 'components/Nav';
 import CssBaseline from 'material-ui/CssBaseline';
-import Footer from 'components/Footer';
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { initUser } from 'actions';
+import PrivateRoute from 'config/PrivateRoute';
+
+import Nav from './Nav';
+import Footer from './Footer';
+
 import Home from 'pages/Home';
 import PostsShow from 'pages/PostsShow';
 import StrategiesShow from 'pages/StrategiesShow';
@@ -9,12 +15,18 @@ import Faq from 'pages/Faq';
 import Tos from 'pages/Tos';
 import Pp from 'pages/Pp';
 import Profile from 'pages/Profile';
-import PrivateRoute from 'components/PrivateRoute';
 
-import { Router, Route } from 'react-router-dom';
-import history from 'config/history';
-import { connect } from 'react-redux';
-import { initUser } from '../../actions';
+const Routes = ({ isSignedIn }) => (
+  <div>
+    <Route exact path="/" component={Home} />
+    <Route path="/posts/:id" component={PostsShow} />
+    <Route path="/strategies/:id" component={StrategiesShow} />
+    <Route path="/faq" component={Faq} />
+    <Route path="/tos" component={Tos} />
+    <Route path="/pp" component={Pp} />
+    <PrivateRoute path="/profile" component={Profile} isSignedIn={isSignedIn} />
+  </div>
+);
 
 class App extends React.Component {
   componentDidMount() {
@@ -30,28 +42,14 @@ class App extends React.Component {
         {isLoading && <span>Loading...</span>}
 
         {!isLoading && (
-          <Router history={history}>
-            <div>
-              <CssBaseline />
-              <Nav />
-              <div className="App">
-                <Route exact path="/" component={Home} />
-                <PrivateRoute
-                  path="/profile"
-                  component={Profile}
-                  isSignedIn={isSignedIn}
-                />
-
-                <Route path="/posts/:id" component={PostsShow} />
-                <Route path="/strategies/:id" component={StrategiesShow} />
-
-                <Route path="/faq" component={Faq} />
-                <Route path="/tos" component={Tos} />
-                <Route path="/pp" component={Pp} />
-              </div>
-              <Footer />
+          <div>
+            <CssBaseline />
+            <Nav />
+            <div className="App">
+              <Routes isSignedIn={isSignedIn} />
             </div>
-          </Router>
+            <Footer />
+          </div>
         )}
       </div>
     );
@@ -62,12 +60,10 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    initUser: () => {
-      dispatch(initUser());
-    }
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  initUser: () => {
+    dispatch(initUser());
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
