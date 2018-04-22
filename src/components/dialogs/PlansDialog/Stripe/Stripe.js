@@ -1,19 +1,14 @@
-// TODO move to Stripe.js
-// index.js
 import React from 'react';
 import { StripeProvider, Elements } from 'react-stripe-elements';
-import './CheckoutForm.css';
+import './Stripe.css';
 
-import CheckoutForm from './CheckoutForm';
+import Form from './Form';
 
 const Stripe = ({ selectedPlan, selectedPeriod }) => {
   return (
     <StripeProvider apiKey="pk_test_lmbfoH6z0BtWM4D6k60lIfJU">
       <Elements>
-        <CheckoutForm
-          selectedPlan={selectedPlan}
-          selectedPeriod={selectedPeriod}
-        />
+        <Form selectedPlan={selectedPlan} selectedPeriod={selectedPeriod} />
       </Elements>
     </StripeProvider>
   );

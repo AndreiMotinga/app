@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 import Plans from 'components/shared/Plans';
 import PeriodStep from './PeriodStep';
-import StripeStep from './StripeStep';
+import Stripe from './Stripe';
 
 class SubscriptionStepper extends React.Component {
   state = {
@@ -63,7 +63,7 @@ class SubscriptionStepper extends React.Component {
         );
       case 2:
         return (
-          <StripeStep
+          <Stripe
             selectedPlan={this.state.selectedPlan}
             selectedPeriod={this.state.selectedPeriod}
           />
