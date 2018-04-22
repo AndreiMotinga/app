@@ -27,7 +27,7 @@ const AuthDialog = ({ isOpen, handleOpen, handleClose }) => {
 };
 
 const mapStateToProps = state => ({
-  isOpen: state.auth.activeDialog === 'AuthDialog'
+  isOpen: state.activeDialog === 'AuthDialog'
 });
 
 const mapDispatchToProps = dispatch => ({

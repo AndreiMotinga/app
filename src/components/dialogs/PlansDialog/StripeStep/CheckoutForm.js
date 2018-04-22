@@ -38,7 +38,7 @@ class CheckoutForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isLoading: !!state.auth.isLoading
+  isLoading: state.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

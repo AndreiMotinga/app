@@ -8,7 +8,6 @@ import Subscription from './Subscription';
 import Paper from 'material-ui/Paper';
 import { withStyles } from 'material-ui/styles';
 
-// const Profile = ({ currentUser, isSubscribed, handleOpen }) => {
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +22,9 @@ class Profile extends React.Component {
   };
 
   render() {
-    const { classes, currentUser, isSubscribed, handleOpen } = this.props;
+    const { classes, currentUser, handleOpen } = this.props;
+    const isSubscribed = Boolean(currentUser.plan_id);
+
     return (
       <div className={classes.root}>
         <Grid container spacing={24}>
@@ -52,8 +53,7 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  currentUser: state.auth.currentUser,
-  isSubscribed: !!state.auth.currentUser.plan_id // TODO provide a better solution for this
+  currentUser: state.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

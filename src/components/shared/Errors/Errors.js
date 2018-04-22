@@ -18,7 +18,7 @@ const Errors = ({ errors }) => {
 };
 
 const mapStateToProps = state => ({
-  errors: state.auth.errors
+  errors: state.errors
 });
 
 export default connect(mapStateToProps)(Errors);

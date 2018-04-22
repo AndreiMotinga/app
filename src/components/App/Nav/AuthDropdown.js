@@ -44,8 +44,7 @@ class AuthDropdown extends React.Component {
   render() {
     const anchorEl = this.state.anchorEl;
     const open = Boolean(anchorEl);
-    const { currentUser } = this.props.auth;
-    const isSignedIn = !!currentUser.email;
+    const { isSignedIn } = this.props;
 
     return (
       <div className="Nav_right_item">
@@ -90,7 +89,7 @@ class AuthDropdown extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: Boolean(state.currentUser.email)
 });
 
 const mapDispatchToProps = dispatch => ({

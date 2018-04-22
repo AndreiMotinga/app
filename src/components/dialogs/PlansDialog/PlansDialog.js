@@ -24,7 +24,7 @@ const PlansDialog = ({ isOpen, handleOpen, handleClose }) => {
 };
 
 const mapStateToProps = state => ({
-  isOpen: state.auth.activeDialog === 'PlansDialog'
+  isOpen: state.activeDialog === 'PlansDialog'
 });
 
 const mapDispatchToProps = dispatch => ({

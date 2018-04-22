@@ -27,8 +27,7 @@ class SigninForm extends React.Component {
   };
 
   render() {
-    const { isLoading } = this.props.auth;
-    const { classes } = this.props;
+    const { classes, isLoading } = this.props;
 
     return (
       <div>
@@ -75,7 +74,7 @@ class SigninForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  isLoading: state.isLoading
 });
 
 const mapDispatchToProps = dispatch => {

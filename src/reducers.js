@@ -8,15 +8,14 @@ import {
   CLOSE_DIALOG
 } from './constants';
 
-//TODO change auth reducer to root reducer
-const initialAuthState = {
+const initialState = {
   activeDialog: null,
   isLoading: false,
   errors: [],
   currentUser: {}
 };
 
-function auth(state = initialAuthState, action) {
+const root = (state = initialState, action) => {
   switch (action.type) {
     case AUTH.INIT:
       return {
@@ -123,10 +122,6 @@ function auth(state = initialAuthState, action) {
     default:
       return state;
   }
-}
-
-const root = combineReducers({
-  auth
-});
+};
 
 export default root;

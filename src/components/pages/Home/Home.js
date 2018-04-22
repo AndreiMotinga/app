@@ -96,7 +96,7 @@ const styles = theme => ({
 });
 
 const mapStateToProps = state => ({
-  isSignedIn: Boolean(state.auth.currentUser.email)
+  isSignedIn: Boolean(state.currentUser.email)
 });
 
 const mapDispatchToProps = dispatch => ({
