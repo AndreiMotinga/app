@@ -45,13 +45,11 @@ PeriodStep.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-// TODO move minehight to parent
 const styles = theme => ({
   root: {
     flexGrow: 1,
     margin: '0 auto',
     maxWidth: '560px',
-    minHeight: '250px',
     backgroundColor: theme.palette.background.paper
   },
   tabsRoot: {

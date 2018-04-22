@@ -90,28 +90,26 @@ class SubscriptionStepper extends React.Component {
             );
           })}
         </Stepper>
+
+        <div className={classes.content}>{this.getStepContent()}</div>
+
         <div>
-          <div>
-            {this.getStepContent()}
-            <div>
-              <Button
-                disabled={activeStep === 0}
-                onClick={this.handleBack}
-                className={classes.button}
-              >
-                Back
-              </Button>
-              {activeStep <= 1 && (
-                <Button
-                  onClick={this.handleNext}
-                  className={classes.button}
-                  disabled={activeStep === 0}
-                >
-                  Next
-                </Button>
-              )}
-            </div>
-          </div>
+          {activeStep <= 1 && (
+            <Button
+              onClick={this.handleNext}
+              className={classes.button}
+              disabled={activeStep === 0}
+            >
+              Next
+            </Button>
+          )}
+          <Button
+            disabled={activeStep === 0}
+            onClick={this.handleBack}
+            className={classes.button}
+          >
+            Back
+          </Button>
         </div>
       </div>
     );
@@ -131,12 +129,12 @@ const styles = theme => ({
     width: '90%',
     margin: '0 auto'
   },
-  button: {
-    marginRight: theme.spacing.unit
+  content: {
+    minHeight: '300px'
   },
-  instructions: {
-    marginTop: theme.spacing.unit,
-    marginBottom: theme.spacing.unit
+  button: {
+    float: 'right',
+    marginRight: theme.spacing.unit
   }
 });
 
