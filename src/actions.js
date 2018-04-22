@@ -1,7 +1,6 @@
 import Api from './api';
-// TODO fix casing
 import {
-  Auth,
+  AUTH,
   SUBSCRIPTION_REQUEST,
   SUBSCRIPTION_SUCCESS,
   SUBSCRIPTION_FAILURE,
@@ -19,7 +18,7 @@ export function initUser() {
 
 export function init(currentUser) {
   return {
-    type: Auth.INIT,
+    type: AUTH.INIT,
     currentUser
   };
 }
@@ -33,19 +32,19 @@ export function signup(email, password) {
 
 export function signupRequest() {
   return {
-    type: Auth.SIGNUP_REQUEST
+    type: AUTH.SIGNUP_REQUEST
   };
 }
 
 export function signupSuccess() {
   return {
-    type: Auth.SIGNUP_SUCCESS
+    type: AUTH.SIGNUP_SUCCESS
   };
 }
 
 export function signupFailure(errors) {
   return {
-    type: Auth.SIGNUP_FAILURE,
+    type: AUTH.SIGNUP_FAILURE,
     errors
   };
 }
@@ -60,7 +59,7 @@ export function signin(email, password) {
 
 export function signinRequest(email, password) {
   return {
-    type: Auth.SIGNIN_REQUEST,
+    type: AUTH.SIGNIN_REQUEST,
     email,
     password
   };
@@ -68,14 +67,14 @@ export function signinRequest(email, password) {
 
 export function signinSuccess(currentUser) {
   return {
-    type: Auth.SIGNIN_SUCCESS,
+    type: AUTH.SIGNIN_SUCCESS,
     currentUser
   };
 }
 
 export function signinFailure(errors) {
   return {
-    type: Auth.SIGNIN_FAILURE,
+    type: AUTH.SIGNIN_FAILURE,
     errors
   };
 }
@@ -89,19 +88,19 @@ export function signout() {
 
 export function signoutRequest() {
   return {
-    type: Auth.SIGNOUT_REQUEST
+    type: AUTH.SIGNOUT_REQUEST
   };
 }
 
 export function signoutSuccess() {
   return {
-    type: Auth.SIGNOUT_SUCCESS
+    type: AUTH.SIGNOUT_SUCCESS
   };
 }
 
 export function signoutFailure(errors) {
   return {
-    type: Auth.SIGNOUT_FAILURE,
+    type: AUTH.SIGNOUT_FAILURE,
     errors
   };
 }

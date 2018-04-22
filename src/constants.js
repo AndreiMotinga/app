@@ -1,4 +1,4 @@
-export const Auth = {
+export const AUTH = {
   INIT: 'INIT',
 
   SIGNUP_REQUEST: 'SIGNUP_REQUEST',

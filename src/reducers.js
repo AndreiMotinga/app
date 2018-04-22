@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import {
-  Auth,
+  AUTH,
   SUBSCRIPTION_REQUEST,
   SUBSCRIPTION_SUCCESS,
   SUBSCRIPTION_FAILURE,
@@ -18,7 +18,7 @@ const initialAuthState = {
 
 function auth(state = initialAuthState, action) {
   switch (action.type) {
-    case Auth.INIT:
+    case AUTH.INIT:
       return {
         ...state,
         isLoading: false,
@@ -28,17 +28,17 @@ function auth(state = initialAuthState, action) {
     /*
      * signup actions
      */
-    case Auth.SIGNUP_REQUEST:
+    case AUTH.SIGNUP_REQUEST:
       return { ...state, isLoading: true };
 
-    case Auth.SIGNUP_SUCCESS:
+    case AUTH.SIGNUP_SUCCESS:
       return {
         ...state,
         activeDialog: null,
         isLoading: false
       };
 
-    case Auth.SIGNUP_FAILURE:
+    case AUTH.SIGNUP_FAILURE:
       return {
         ...state,
         isLoading: false,
@@ -48,10 +48,10 @@ function auth(state = initialAuthState, action) {
     /*
      * signin actions
      */
-    case Auth.SIGNIN_REQUEST:
+    case AUTH.SIGNIN_REQUEST:
       return { ...state, isLoading: true };
 
-    case Auth.SIGNIN_SUCCESS:
+    case AUTH.SIGNIN_SUCCESS:
       return {
         ...state,
         activeDialog: null,
@@ -59,7 +59,7 @@ function auth(state = initialAuthState, action) {
         currentUser: action.currentUser
       };
 
-    case Auth.SIGNIN_FAILURE:
+    case AUTH.SIGNIN_FAILURE:
       return {
         ...state,
         isLoading: false,
@@ -69,17 +69,17 @@ function auth(state = initialAuthState, action) {
     /*
      * signout actions
      */
-    case Auth.SIGNOUT_REQUEST:
+    case AUTH.SIGNOUT_REQUEST:
       return { ...state, isLoading: true };
 
-    case Auth.SIGNOUT_SUCCESS:
+    case AUTH.SIGNOUT_SUCCESS:
       return {
         ...state,
         isLoading: false,
         currentUser: {}
       };
 
-    case Auth.SIGNOUT_FAILURE:
+    case AUTH.SIGNOUT_FAILURE:
       return {
         ...state,
         isLoading: false,
