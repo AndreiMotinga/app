@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
 import { connect } from 'react-redux';
 
 import Plans from 'components/shared/Plans';

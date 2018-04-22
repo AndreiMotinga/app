@@ -52,7 +52,6 @@ const styles = theme => ({
     alignItems: 'center'
   },
   wrapper: {
-    margin: theme.spacing.unit,
     position: 'relative',
     margin: '30px auto 0'
   },

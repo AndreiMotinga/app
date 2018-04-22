@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { signin } from 'actions';
 import TextField from 'material-ui/TextField';
 import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
 import ProgressButton from 'components/shared/ProgressButton';
 import Errors from 'components/shared/Errors';
 
